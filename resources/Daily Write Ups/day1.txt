@@ -1,0 +1,68 @@
+Day 1 - 6/28/24
+--------------------------------------------------------------------------------------
+The GBC has 32 Kb of RAM and 16 Kb of VRAM. This translates to 262,144 bits and
+131,072 respectively.
+
+Since the data bus transfers 8-bits at a time, there will be 32,768 single byte
+memory locations for the RAM and 16,384 single byte memory locations for the VRAM.
+
+
+The Gameboy CPU (LR35902) has the following for registers. The GBC uses the same
+set of registers.
+
+      Hi            Lo              Only if combined. I believe that AF isn't a
+                                    used combination.
+7     -      0 7     -      0       
+┏━━━━━━━━━━━━┓ ┏━━━━━━━━━━━━┓       A - Accumulator - Used in logic and arithmetic
+┃     A      ┃ ┃     F      ┃                         operations
+┗━━━━━━━━━━━━┛ ┗━━━━━━━━━━━━┛       F - Flags - Used to store flags after arithmetic
+┏━━━━━━━━━━━━┓ ┏━━━━━━━━━━━━┓                   operations
+┃     B      ┃ ┃     C      ┃       
+┗━━━━━━━━━━━━┛ ┗━━━━━━━━━━━━┛       [7, 6, 5, 4, 3, 2, 1, 0]
+┏━━━━━━━━━━━━┓ ┏━━━━━━━━━━━━┓       [Z, N, H, C, 0, 0, 0, 0]
+┃     D      ┃ ┃     E      ┃       Z - Zero Flag
+┗━━━━━━━━━━━━┛ ┗━━━━━━━━━━━━┛       N - Subtract Flag
+┏━━━━━━━━━━━━┓ ┏━━━━━━━━━━━━┓       H - Half Carry Flag
+┃     H      ┃ ┃     L      ┃       C - Carry Flag
+┗━━━━━━━━━━━━┛ ┗━━━━━━━━━━━━┛
+                                    B - General Purpose Register
+15            -             0       C - General Purpose Register
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┓       D - General Purpose Register
+┃             SP            ┃       E - General Purpose Register
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛       H - General Purpose Register
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┓       L - General Purpose Register
+┃             PC            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛       The 8-bit registers can be combined to make a
+                                    16-bit register. This is because the Gameboy
+                                    uses a CISC architecture, or variable length
+                                    instruction set.
+
+                                    SP - Stack Pointer Register
+                                    PC - Program Counter Register
+
+The Zero Flag is used when the operation is 0. Used by conditional jumps.
+    0: Last operation WAS NOT zero
+    1: Last operation WAS zero
+
+The Carry Flag is used when there is a bit overflow during arithmetic operations.
+    0: Last operation DID NOT carry
+    1: Last operation DID carry
+
+    8-bit triggers on 0xFF
+    16-bit triggers on 0xFFFF
+    When a condition or subtraction is lower than 0
+    When a rotate/shift operation shifts out a "1" bit
+
+The Subtract Flag
+    0: The last operation was an addition
+    1: The last operation was a subtration
+
+The Half Carry Flag
+    0: There WAS NO carry from bit 3 to bit 4 in the lower nibble during the last
+       operation
+    0: There WAS A carry from bit 3 to bit 4 in the lower nibble during the last
+       operation
+
+    E.g. 0x0f (0000 1111) + 0x01 (0000 0001) = 0x10 (0001 0000)
+    
+    It's used during nibble addition rather than byte addition.
