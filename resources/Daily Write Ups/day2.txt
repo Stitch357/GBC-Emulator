@@ -1,0 +1,141 @@
+Day 2 - 7/1/24
+---------------------------------------------------------------------------------------------------
+
+Memory Mapping
+---------------------------------------------------------------------------------------------------
+
+Start   End        Description                  Notes
+$0000 - $3FFF ---> 16 KiB ROM Bank 00           Pulled from cartridge, usually a fixed Bank
+$4000 - $7FFF ---> 16 KiB ROM Bank 01 - NN      From cartridge, switchable bank via mapper
+$8000 - $9FFF ---> 8 KiB VRAM                   In CGB mode, switchable bank 0/1
+$A000 - $BFFF ---> 8 KiB External RAM           From cartridge, switchable bank if any
+$C000 - $CFFF ---> 4 KiB Work RAM
+$D000 - $DFFF ---> 4 KiB Work RAM               In CGB mode, switchable bank 1–7
+$E000 - $FDFF ---> Echo RAM of $C000 - $CFFF    Nintendo says use of this area is prohibited.
+$FE00 - $FE9F ---> Object Attribute Memory
+$FEA0 - $FEFF ---> Not Usable                   Nintendo says use of this area is prohibited.
+$FF00 - $FF7F ---> I/O registers
+$FF80 - $FFFE ---> Hi RAM
+$FFFF - $FFFF ---> Interrupt Enable Register
+
+I/O Ranges
+---------------------------------------------------------------------------------------------------
+
+Start   End         Purpose
+$FF00               Joypad Input
+$FF01 - $FF02       Serial Transfer
+$FF04 - $FF07       Timer and Divider
+$FF0F               Interrupts
+$FF10 - $FF26       Audio
+$FF30 - $FF3F       Wave Pattern
+$FF40 - $FF4B       LCD Control, Status, Position, Scrolling, & Palettes
+$FF4F               VRAM Bank Selection
+$FF50               Set to non-zero to disable boot ROM
+$FF51 - $FF55       VRAM DMA
+$FF68 - $FF6B       BG / OBJ Palettes
+$FF70               Work RAM Bank Selector
+
+Current Thoughts
+---------------------------------------------------------------------------------------------------
+
+After reading through the memory map section, it's clear how the bank switching occurs.
+
+Addresses - $4000 - $7FFF are controlled by a Memory Bank Controller (MBC)
+    The MBC type is specified at $0147 which is pulled from the cartridge header.
+
+    Code    Type
+    $00	    ROM ONLY
+    $01	    MBC1
+    $02	    MBC1 + RAM
+    $03	    MBC1 + RAM + BATTERY
+    $05	    MBC2
+    $06 	MBC2 + BATTERY
+    $08	    ROM + RAM 9
+    $09 	ROM + RAM + BATTERY 9
+    $0B 	MMM01
+    $0C 	MMM01 + RAM
+    $0D 	MMM01 + RAM + BATTERY
+    $0F	    MBC3 + TIMER + BATTERY
+    $10	    MBC3 + TIMER + RAM + BATTERY 10
+    $11 	MBC3
+    $12	    MBC3 + RAM 10
+    $13	    MBC3 + RAM + BATTERY 10
+    $19	    MBC5
+    $1A	    MBC5 + RAM
+    $1B	    MBC5 + RAM + BATTERY
+    $1C	    MBC5 + RUMBLE
+    $1D	    MBC5 + RUMBLE + RAM
+    $1E	    MBC5 + RUMBLE + RAM + BATTERY
+    $20	    MBC6
+    $22	    MBC7 + SENSOR + RUMBLE + RAM + BATTERY
+    $FC	    POCKET CAMERA
+    $FD 	BANDAI TAMA5
+    $FE 	HuC3
+    $FF 	HuC1 + RAM + BATTERY
+
+    The ROM for Pokemon Red is      $13 --- MBC3 + RAM + BATTERY 10
+    The ROM for Pokemon Yellow is   $1B --- MBC5 + RAM + BATTERY
+    The ROM for Pokemon Silver is   $10 --- MBC3 + TIMER + RAM + BATTERY 10
+    The ROM for Pokemon Gold is     $10 --- MBC3 + TIMER + RAM + BATTERY 10
+
+    MBC3 is the most popular one out of those, so it will be my sole focus until
+    I get Pokemon Red working. I'm not sure what the extra bits mean so far. I'll
+    need to spend some time looking all of that up. From a quick Google the TIMER
+    is using a Real Time Clock, or RTC as the forums call it.
+
+    The Emulator I found written in C shows instruction 0x02 and 0x0A as being linked
+    to MBC. At least they have them labeled as gb_i_ld_mbc_a and gb_i_ld_a_mbc
+    respectifully. But without starting the programming I'm lost for the moment.
+    
+    I always need to dive into the theory behind what I'm doing before I can get to
+    the programming.
+
+Addresses - $8000 - $9FFF are controlled by $FF4F
+Addresses - $D000 - $DFFF are controlled by $FF70
+
+---------------------------------------------------------------------------------------------------
+
+Another important piece to all of this is the cartridge header. It goes from $0100 - $014F
+
+Start   End       Type
+$0100 - $0103   - Entry Point
+$0104 - $0133   - Nintendo Logo
+$0134 - $0143   - Title
+$013F - $0142   - Manufacturer Code
+$0143           - Color Gameboy Flag
+$0144 - $0145   - New Licensee Code
+$0146           - Super Gameboy Flag
+$0147           - Cartridge Type (MBC Type)
+$0148           - ROM Size
+$0149           - RAM Size
+$014A           - Destination Code
+$014B           - Old Licensee Code
+$014C           - Mask ROM Version Number
+$014D           - Header Checksum
+                    uint8_t checksum = 0;
+
+                    for (uint16_t address = 0x0134; address <= 0x014C; address++) {
+                        checksum = checksum - rom[address] - 1;
+                    }
+
+                    The boot ROM verifies this checksum. If the byte at $014D does
+                    not match the lower 8 bits of checksum, the boot ROM will lock
+                    up and the program in the cartridge won’t run.
+
+$014E - $014F   - Global Checksum
+                    This checksum isn't verified except in Pokemon Stadium GB Tower
+
+CPU Start Point
+---------------------------------------------------------------------------------------------------
+It looks like I can ignore the Boot ROM and just start the PC at $0100. I'll need to
+verify this with testing.
+
+Project Starting Point
+---------------------------------------------------------------------------------------------------
+For completeness, it might be beneficial to dynamically allocate the RAM based on the $0149
+address. I'm only planning on emulating Gameboy and Gameboy Color games so anything more is
+unnecessary.
+
+1)  Create a struct for the CPU. This will house the registers mentioned in Day 1 along with
+    the PC. I'm assuming that the SP is set to address $FFFE since that's the full size of
+    needed memory.

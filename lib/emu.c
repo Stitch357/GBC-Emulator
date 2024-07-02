@@ -16,7 +16,7 @@
 
     8-bit Central Processing Unit
     32Kb Work Random Access Memory (RAM)
-    16Kb Display RAM
+    16Kb VRAM
     Liquid Crystal Display Screen
     Read Only Memory (ROM) AKA the external video game cartridge
     Joypad Input

@@ -1,3 +1,5 @@
+Technical Resources
+---------------------------------------------------------------------------------------------------
 https://gbdev.io/pandocs/
 
 https://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html
@@ -14,5 +16,11 @@ https://rylev.github.io/DMG-01/public/book/
 
 
 Gameboy Clock Accuracy Challenge
-
+---------------------------------------------------------------------------------------------------
 https://github.com/jkotlinski/gbchrono
+
+
+
+Gameboy/Gameboy Color Emulator Written in C
+---------------------------------------------------------------------------------------------------
+https://github.com/simias/gaembuoy/tree/master
