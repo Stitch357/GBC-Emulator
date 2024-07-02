@@ -136,6 +136,30 @@ For completeness, it might be beneficial to dynamically allocate the RAM based o
 address. I'm only planning on emulating Gameboy and Gameboy Color games so anything more is
 unnecessary.
 
-1)  Create a struct for the CPU. This will house the registers mentioned in Day 1 along with
+1)  Create a typedef struct for the CPU. This will house the registers mentioned in Day 1 along with
     the PC. I'm assuming that the SP is set to address $FFFE since that's the full size of
     needed memory.
+
+    1.1) Implement FETCHING
+    1.2) Implement DECODING
+    1.3) Implement EXECUTING
+
+2)  Create a typedef struct for the Registers. This is what will house the A, F, B, C, D, E, H, & L
+    registers. It will live inside of the CPU. This is because I want to be able to reference things
+    like CPU.REGS.A = Blah;
+
+    2.1) It may be simpler to store the flags in their own separate booleans. A bool is 1 byte, so
+         that means that I would use 4 bytes instead of 1 byte for the uint8_t. I'm not concerned
+         about the storage inefficency.
+
+3)  Create a typedef struct for the GB. The GB will house the high level components. Components like
+    the CPU, ROM, RAM, VRAM, PPU, I/O, and APU. I don't know of anything else at the moment because I
+    haven't taken a look at it all yet.
+    
+    3.1) There shouldn't be any issue with reading in the entire ROM into memory. The max size of a
+         GB ROM is 32 MB. It seems like storing it as size_t since it is meant for setting as much
+         memory as needed. I'm just not sure how to go about all of this yet.
+
+         *** It looks like the access the ROM based on the address * bank size ***
+
+---------------------------------------------------------------------------------------------------
