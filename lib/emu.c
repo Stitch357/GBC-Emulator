@@ -2,6 +2,12 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
+#include <stdlib.h>
+#include <unistd.h>
+#include <ctype.h>
+#include <string.h>
+#include <errno.h>
+
 /*
     Emulator Parts
     |Cartridge|
@@ -32,3 +38,4 @@
     Cartridge ROM
     External RAM
 */
+

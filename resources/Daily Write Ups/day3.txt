@@ -1,0 +1,90 @@
+Day 3 - 7/4/24
+---------------------------------------------------------------------------------------------------
+
+Beginnings
+---------------------------------------------------------------------------------------------------
+I started creating the structs for the emulator; GB, CPU, REGS, and Cart. GB is going to be the
+driver behind the entire emulator. Once again this is because I want this kind of syntax -
+gb.cpu.regs.a - when working with everything.
+
+However, I did learn that I'll need to initialize the gb to a pointer structure rather than a
+direct instantiation. This is because the pointer will allow for a dynamic allocation of memory.
+That's important because I will be setting a lot of the memory sections based on what is read
+from the cartridge. It'll follow this syntax instead - gb->cpu->regs.a.
+
+Initial Cartridge Variables
+---------------------------------------------------------------------------------------------------
+
+Start   End       Type
+$0100 - $0103   - Entry Point
+    This should be the point that the emulator will start from. 
+
+$0104 - $0133   - Nintendo Logo
+    I don't believe that I need to do a boot ROM comparison with an emulator. However, I would
+    still like to display the start up screen I used to see as a kid. I just won't include it
+    in the public facing version of my Repo.
+
+$0134 - $0143   - Title
+    This depends on if the title is public facing or only hardware facing.
+    I believe that I can go ahead and read the entire 16 bytes without any issue.
+    It will probably only be used in debugging.
+    15 ($0134–$0142) or 11 ($0134–$013E)
+
+$0143           - Color Gameboy Flag
+    Code    Type
+    $00     Default GB
+    $80     Backwards Compatible
+    $C0     CGB Only
+
+$0146           - Super Gameboy Flag
+    Code    Type
+    $00     Default
+    $03     SGB
+
+$0147           - Cartridge Type (MBC Type)
+    Code    Type
+    $10     MBC3 + TIMER + RAM + BATTERY
+    $13     MBC3 + RAM + BATTERY
+    $1B     MBC5 + RAM + BATTERY
+
+$0148           - ROM Size
+    Value	ROM Size    Number of ROM banks
+    $00	    32 KiB	    2 (no banking)
+    $01	    64 KiB	    4
+    $02	    128 KiB	    8
+    $03	    256 KiB	    16
+    $04	    512 KiB	    32
+    $05	    1 MiB	    64
+    $06	    2 MiB	    128
+    $07	    4 MiB	    256
+    $08	    8 MiB	    512
+    $52	    1.1 MiB	    72      - Not known to be used
+    $53	    1.2 MiB	    80      -          |
+    $54	    1.5 MiB	    96      - ____________________
+
+$0149           - RAM Size
+    Code    RAM         Banks
+    $00	    0	        No RAM
+    $01	    –	        Unused 12
+    $02	    8 KiB	    1 bank
+    $03	    32 KiB	    4 banks of 8 KiB each
+    $04	    128 KiB	    16 banks of 8 KiB each
+    $05	    64 KiB	    8 banks of 8 KiB each
+
+Needed Variables
+---------------------------------------------------------------------------------------------------
+
+Possibly not needed in the cartridge itself
+1)  Title
+2)  CGB Flag
+3)  SBG Flag
+4)  MBC Code
+5)  MBC Type
+
+Cart will need to contain these
+6)  ROM Value
+7)  ROM Size
+8)  # of ROM banks
+9)  RAM Value
+10) RAM Size
+11) # of RAM Banks

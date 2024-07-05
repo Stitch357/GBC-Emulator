@@ -15,6 +15,13 @@ https://mattbruv.github.io/gameboy-crust/
 https://rylev.github.io/DMG-01/public/book/
 
 
+Boot ROM Start Up Resources
+---------------------------------------------------------------------------------------------------
+https://realboyemulator.wordpress.com/2013/01/03/a-look-at-the-game-boy-bootstrap-let-the-fun-begin/
+
+https://retrocomputing.stackexchange.com/questions/19549/startup-behavior-of-gameboy-what-to-replicate-in-an-emulator
+
+
 Gameboy Clock Accuracy Challenge
 ---------------------------------------------------------------------------------------------------
 https://github.com/jkotlinski/gbchrono
