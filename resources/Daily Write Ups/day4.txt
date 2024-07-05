@@ -1,0 +1,22 @@
+Day 4 - 7/5/24
+---------------------------------------------------------------------------------------------------
+I ran into a snag today. Quite a simple one when you get down to it, but I had no clue about
+how to make CMakeLists.txt or launch.json files. I'm still not well versed in their uses but
+I got them cobbled together to a workable state. For now...
+
+Since my test roms are not ones I want distrubuted, I had to set up a relative path outside
+of my repo. If anyone copies or wants to use this program, they will need to change the path
+in the launch.json configuration file. For my uses it works perfectly fine.
+
+The next step that I need to take is reading the ROM into my cartridge struct. From there, I
+can start allocating the information that I need to build up the program some more. For
+example, allocating the ROM and RAM based on the values read in. But I will have to figure
+out how to move around the ROM code itself. I've used a hex editor to look at the ROM before
+but I have no clue what it looks like when the program is running. I'm assuming that it's a
+1 Mb long string of 0's and 1's so to speak.
+
+By looking through the example GBC emulator, it looks like I can access the needed information
+by just referencing the correct addresses. E.g. cart->rom[0x147] finds the type of MBC that
+the cartridge uses.
+
+I'll fiddle with all of this next time. But for now, I'm going to work on another project.
