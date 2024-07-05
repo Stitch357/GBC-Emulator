@@ -1,0 +1,3 @@
+/home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles/edit_cache.dir
+/home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles/rebuild_cache.dir
+/home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles/GBC_Emulator.dir

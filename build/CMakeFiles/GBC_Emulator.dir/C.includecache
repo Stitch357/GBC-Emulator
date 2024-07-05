@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../GBC_Emulator_Library/Cartridge/cartridge.h
+structs.h
+../GBC_Emulator_Library/Cartridge/structs.h
+
+../GBC_Emulator_Library/Structs/structs.h
+stdlib.h
+-
+stdio.h
+-
+stdint.h
+-
+stdbool.h
+-
+
+/home/thill/Documents/Github/GBC-Emulator/src/emu.c
+stdlib.h
+-
+stdio.h
+-
+SDL2/SDL.h
+-
+SDL2/SDL_ttf.h
+-
+structs.h
+/home/thill/Documents/Github/GBC-Emulator/src/structs.h
+cartridge.h
+/home/thill/Documents/Github/GBC-Emulator/src/cartridge.h
+
