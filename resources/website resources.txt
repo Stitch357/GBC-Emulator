@@ -2,8 +2,6 @@ Technical Resources
 ---------------------------------------------------------------------------------------------------
 https://gbdev.io/pandocs/
 
-https://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html
-
 https://archive.org/details/GameBoyProgManVer1.1/page/n85/mode/2up
 
 https://github.com/rockytriton/LLD_gbemu/raw/main/docs/The%20Cycle-Accurate%20Game%20Boy%20Docs.pdf
@@ -13,6 +11,20 @@ https://github.com/rockytriton/LLD_gbemu/raw/main/docs/gbctr.pdf
 https://mattbruv.github.io/gameboy-crust/
 
 https://rylev.github.io/DMG-01/public/book/
+
+
+Opcode Resources
+---------------------------------------------------------------------------------------------------
+https://rgbds.gbdev.io/docs/v0.8.0           <--- Best one so far
+
+https://github.com/gbdev/awesome-gbdev?tab=readme-ov-file#opcodes
+
+https://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html
+
+
+Gameboy CPU Manual
+---------------------------------------------------------------------------------------------------
+https://realboyemulator.wordpress.com/wp-content/uploads/2013/01/gbcpuman.pdf
 
 
 CMake Resources
@@ -35,3 +47,9 @@ https://github.com/jkotlinski/gbchrono
 Gameboy/Gameboy Color Emulator Written in C
 ---------------------------------------------------------------------------------------------------
 https://github.com/simias/gaembuoy/tree/master
+
+
+Z80 Instruction Timing Information
+---------------------------------------------------------------------------------------------------
+https://raphaelstaebler.medium.com/building-a-gameboy-from-scratch-part-1-51d05496783e
+https://floooh.github.io/2021/12/06/z80-instruction-timing.html#m-cycles-and-t-states

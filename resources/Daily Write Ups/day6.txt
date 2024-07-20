@@ -1,0 +1,45 @@
+Day 6 - 7/19/24
+---------------------------------------------------------------------------------------------------
+I know that it's going to be the 20th by the time that I push this to Github, but recently I took
+a night auditor job to pay the bills. This means that I often start my work "day" on the posted
+date. So I use that date.
+
+I've started tracing, by hand, what the CPU will follow in order to understand the flow of the
+program. I've only worked with RISC instruction sets before, so it's taking some time to get used
+to the CISC instruction set. For example, JP n16 uses 3 bytes, CP A, n8 uses 2 bytes, and LD B, C
+uses 1 byte. Thankfully the GBC doesn't typically use a fetch-decode-execute pipeline. This means
+that I will be able to do all three inside of the same block of code execution, and then stall
+the CPU for a set number of cycles. I don't know if that's necessary or not. But having that
+set up now will make things much easier for later on, if I do find out that I need it.
+
+I have been extremely confused trying to understand the cycle set up. Some documentation says
+JP n16 takes 16 cycles and others say 4 cycles. I found out that some aren't using the word
+cycle correctly. The larger amount is given in T-states. The number of system clock ticks it
+takes to execute. While the smaller amount is given in M-cycles. The number of machine cycles
+that it takes to execute.
+
+I needed clarification on when to use them, so I started looking up a bunch of stuff on the GBC
+and Z80. The Gameboy is a variation on the Z80 CPU meaning reading up on the Z80 is incredibly
+helpful. I also decided to ask ChatGPT about the difference between the ticks and cycles. It boils
+down to ticks are going to be most useful for the PPU and ASU. The CPU clock frequency is 4.19 MHz.
+
+When it comes to the PPU and ASU, I want as much accuracy as possible. So I'll be using T-states
+rather than M-cycles. My reasoning behind this is granularity. 1 M-cycle is 4 ticks, but are
+there cases where I need an odd number of ticks? If I need 319 ticks then I can't just divide it
+by 4 for the cycle count. 79.75 cycles doesn't make a ton of sense at all. But 319 ticks does.
+Even more so when you consider that the GBC has a CPU clock frequency of 8.38 MHz.
+
+Instructions
+---------------------------------------------------------------------------------------------------
+In the cpu.h file of the gaembuoy I found a statement that the GBC boot ROM sets REG A to 0x11
+which is going to set a flag differently in the first few instructions. I need to track the source
+for that down in order to understand why, but that wasn't my main focus yet.
+
+I needed to focus on the instructions themselves, so that I can start coding the CPU. I marked
+the opcode sheet, in the website resources.txt file, that I will be using. It has the best
+explanation on the different instructions that I could find. So now that I have the bulk of
+getting familiar with the documentation, it's now time to start implementing the CPU.
+
+Before getting to the CPU, I need to clean up my current code in emu.c. I'm using a test cart
+to load the ROM into, but I need to switch it to the GB struct. I also need to finish reading
+in and setting the cartridge header variables.
