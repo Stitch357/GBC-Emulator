@@ -30,9 +30,9 @@ typedef struct cpu {
 
 typedef struct cart {
     uint8_t *cart_rom;                  // Reads in the entire ROM | Dynamically set
+    unsigned int rom_size;              // Stores the size of the ROM in bytes
 
     uint8_t rom_code;                   // Houses the ROM identifier code
-    unsigned int rom_size;              // Stores the size of the ROM in bytes
     uint16_t num_of_rom_banks;          // Stores the number of ROM banks (2 - 512)
 
     uint8_t *cart_ram;                  // Dynamically set amount based on cart specs

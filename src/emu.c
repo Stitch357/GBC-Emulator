@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    const char *rom_path = argv[1];
+    const char *rom_path = "../../Roms/Pokemon Red.gb";
 
     printf("Loading ROM: %s\n", rom_path);
 
@@ -36,6 +36,8 @@ int main(int argc, char *argv[]) {
     printf("-------------------------------\n");
     printf("Program is working for CART\n");
     printf("-------------------------------\n");
+
+    load_rom_from_cart(&test_cart, rom_path);
 
     return 0;
 }

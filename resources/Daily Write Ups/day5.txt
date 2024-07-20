@@ -1,0 +1,52 @@
+Day 5 - 7/18/24
+---------------------------------------------------------------------------------------------------
+
+https://www.tutorialspoint.com/c_standard_library/index.htm
+
+FILE *fopen(const char *filename, const char *mode) - Used to open a file
+    arg[0] -> Uses the path to the file being opened
+        E.g. "../../Roms/Pokemon Red.gb"
+    arg[1] -> Used to set the mode of the file being opened
+        In this case we use "rb" because we are trying to Read a Binary file.
+
+int fseek(FILE *stream, long int offset, int whence); - Used to move around a file
+    SEEK_SET - Used for the beginning of the file
+    SEEK_CUR - Used for the current position of the file
+    SEEK_END - Used for the end of the file
+
+    arg[0] -> The pointer to the file object being accessed
+    arg[1] -> The offset of the file pointer in BYTES (8 bits)
+    arg[2] -> The position that the offset is added to
+        E.g. SEEK_SET (0) + 8 bytes = pointer position of 64
+
+perror() - Used to output detailed error messaging
+
+---------------------------------------------------------------------------------------------------
+
+So far I got reading the file working correctly. Along with finding the length of the file. In
+the case of Pokemon Red, the ROM size is 1,048,576 bits or 131,072 bytes long. This equates to
+1 Mebibit in length or 0.131072 Megabytes in length. Next up is reading the entire ROM into the
+cart ROM.
+
+cart->rom_size = length_of_file;
+cart->cart_rom = calloc(1, cart->rom_size);
+
+I figured out how to allocate the needed memory for the cartridge ROM based on the gathered length
+of the ROM file. From there it was just reading the file into the cart_rom variable.
+
+size_t bytes = fread(cart->cart_rom, 1, cart->rom_size, file);
+
+Which means I can now access the different addresses of the ROM file from the CART struct.
+
+printf("\n0x%02X ", cart->cart_rom[0x0009AA50]);
+
+I haven't thought of how to copy the needed addresses to the CPU yet. I know that the PC will be
+housing the memory locations such as the 0x0009AA50, 0x00000001, etc... And since I don't need
+the boot rom, I start at 0x100 - 0x103. But without further exploring that I have no clue where
+to begin. Mainly because I'm unfamiliar with the opcodes of the CPU, so I need to spend some time
+trying to understand what they mean.
+
+But before that I need to continue the work on the cartridge. I've only got the size of the rom
+and the ROM read into memory. I need to also deallocate the memory when it isn't needed. I also
+need to read all of the variables from the ROM in order to correctly set the cart variables such
+as, RAM size, MBC types, GBC vs SGB, etc...
