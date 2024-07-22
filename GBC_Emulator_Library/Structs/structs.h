@@ -36,10 +36,14 @@ typedef struct cart {
     uint16_t num_of_rom_banks;          // Stores the number of ROM banks (2 - 512)
 
     uint8_t *cart_ram;                  // Dynamically set amount based on cart specs
-
-    uint8_t ram_code;                   // Houses the RAM identifier code
     unsigned int ram_size;              // Stores the size of the RAM in bytes
+    
+    uint8_t ram_code;                   // Houses the RAM identifier code
     uint8_t num_of_ram_banks;           // Stores the number of RAM banks (0 - 16)
+
+    char title[17];                     // Stores the title of the game
+
+    bool cgb;                           // Stores the flag for CGB mode
 
 } CART;
 

@@ -1,0 +1,56 @@
+7/20/24
+---------------------------------------------------------------------------------------------------
+I did all this work yesterday during my shift, but didn't have a chance to push the update
+or do a write-up. So I'm doing that before I get started on adding the other flags and codes.
+
+Ctrl + / -> Comments out the highlighted block of code
+Ctrl + / (Again) -> Uncomments out the highlighted block of code
+
+---------------------------------------------------------------------------------------------------
+
+static void load_title(CART *cart) -> Loads the title into the CART struct
+
+static void load_cgb_flag(CART *cart) -> Sets the Color Game Boy flag
+
+static void load_rom_banks(CART *cart) -> Sets the # of ROM banks based on the ROM code
+
+static void load_ram(CART *cart) -> Sets the CART RAM in bytes along with the # of banks
+
+---------------------------------------------------------------------------------------------------
+
+I pulled this block of code from cartridge.h. It's solely meant for debugging purposes as I'm
+working on the project. I haven't yet figured out how to set the argc or argv when debugging
+with F5. I do need to figure out how to do that. But for now, I want to implement the rest of
+the flags and codes.
+
+---------------------------------------------------------------------------------------------------
+
+// Functions used with debugging
+static void print_title(CART *cart);
+static void print_cgb_flag(CART *cart);
+
+static void print_rom_code(CART *cart);
+static void print_rom_banks(CART *cart);
+
+static void print_ram_code(CART *cart);
+static void print_ram_size(CART *cart);
+static void print_ram_banks(CART *cart);
+
+
+Needed Variables Completed
+---------------------------------------------------------------------------------------------------
+
+Possibly not needed in the cartridge itself
+1)  Title                   --- Done
+2)  CGB Flag                --- Done
+3)  SBG Flag                ---
+4)  MBC Code                ---
+5)  MBC Type                ---
+
+Cart will need to contain these
+6)  ROM Value               --- Done
+7)  ROM Size                --- Done
+8)  # of ROM banks          --- Done
+9)  RAM Value               --- Done
+10) RAM Size                --- Done
+11) # of RAM Banks          --- Done
