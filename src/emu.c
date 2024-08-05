@@ -5,12 +5,16 @@
 
 #include "structs.h"
 #include "cartridge.h"
+#include "cpu.h"
 
+// Used in testing
 #define debugging false
 
 int main(int argc, char *argv[]) {
     GB gbc;
-    CART test_cart;
+    
+    cpu_initialize(&gbc);     // Make sure to initialize the CPU stats
+    print_cpu_stats(&gbc);
 
     if (argc < 2) {
         printf("Usage: %s <ROM file path>\n", argv[0]);
@@ -25,29 +29,17 @@ int main(int argc, char *argv[]) {
         printf("Loading ROM: %s\n", rom_path);
     }
 
-    initialize_cart(&gbc.cartridge);
+    initialize_cart(&gbc);
+    load_cartridge(&gbc, rom_path);
 
     if (debugging) {
-        print_cart(&gbc.cartridge);
+        print_cart(&gbc);
 
         printf("\n");
         printf("-------------------------------\n");
         printf("Program is working for GB\n");
         printf("-------------------------------\n");
     }
-
-    initialize_cart(&test_cart);
-
-    if (debugging) {
-        print_cart(&test_cart);
-
-        printf("\n");
-        printf("-------------------------------\n");
-        printf("Program is working for CART\n");
-        printf("-------------------------------\n");
-    }
-
-    load_cartridge(&test_cart, rom_path);
 
     return 0;
 }

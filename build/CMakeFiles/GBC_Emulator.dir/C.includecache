@@ -6,9 +6,17 @@
 
 #IncludeRegexTransform: 
 
+../GBC_Emulator_Library/CPU/cpu.h
+structs.h
+../GBC_Emulator_Library/CPU/structs.h
+
 ../GBC_Emulator_Library/Cartridge/cartridge.h
 structs.h
 ../GBC_Emulator_Library/Cartridge/structs.h
+enum.h
+../GBC_Emulator_Library/Cartridge/enum.h
+
+../GBC_Emulator_Library/Enums/enum.h
 
 ../GBC_Emulator_Library/Structs/structs.h
 stdlib.h
@@ -23,6 +31,20 @@ stdbool.h
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/APU/apu.c
 
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/cpu.c
+stdlib.h
+-
+stdint.h
+-
+errno.h
+-
+cpu.h
+/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/cpu.h
+structs.h
+/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/structs.h
+
+/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/cpu.h
+structs.h
+/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/structs.h
 
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/cartridge.c
 stdlib.h
@@ -39,6 +61,8 @@ structs.h
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/cartridge.h
 structs.h
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/structs.h
+enum.h
+/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/enum.h
 
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/GB/gameboy.c
 
@@ -57,4 +81,6 @@ structs.h
 /home/thill/Documents/Github/GBC-Emulator/src/structs.h
 cartridge.h
 /home/thill/Documents/Github/GBC-Emulator/src/cartridge.h
+cpu.h
+/home/thill/Documents/Github/GBC-Emulator/src/cpu.h
 

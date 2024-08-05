@@ -14,8 +14,10 @@ include_directories(
     "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/CPU"
     "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/Cartridge"
     "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/GB"
+    "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/MBC"
     "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/PPU"
     "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/Structs"
+    "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/Enums"
 )
 
 # Add the executable
@@ -25,6 +27,7 @@ add_executable(GBC_Emulator
     GBC_Emulator_Library/CPU/cpu.c
     GBC_Emulator_Library/Cartridge/cartridge.c
     GBC_Emulator_Library/GB/gameboy.c
+    GBC_Emulator_Library/MBC/mbc.c
     GBC_Emulator_Library/PPU/ppu.c
 )
 

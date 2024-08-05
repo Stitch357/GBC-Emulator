@@ -1,0 +1,44 @@
+7/21/24
+---------------------------------------------------------------------------------------------------
+
+As a quick note, I'm not finding a ton about the Super Game Boy flag. The only thing that Pan docs
+says is that the Super Game Boy will ignore command packets if the code isn't $03. Digging into
+that it says that command packets are transferred from the Game Boy to the SNES.
+
+ALong with that, I dug into what the Super Game Boy actually is. It was a peripheral device that
+allowed the SNES to play Game Boy games. It wasn't a stand alone device, so there seems to be no
+need for me to touch anything to do with it.
+
+This leaves me with implementing the MBC codes and flags. Which means I need to research what exactly
+they are.
+
+---------------------------------------------------------------------------------------------------
+
+I got severly distracted tonight while working on this. I took a detour to look through the geambouy
+C implementation of the MBC. I have just about everything completed for the cartridge except for the
+MBC implementation, saving, and freeing all the allocated memory. I also don't have anything for
+reading or writing to the cartridge ROM or RAM. This stems from not understanding the MBC, and I
+don't want to just copy their work without understanding it myself. I hate doing that and it won'that
+help me in the long run.
+
+I need to dive into researching about the MBC types to understand what they do. So far all I know is
+that they control the memory bank switching. But I don't understand the how or why, yet.
+
+---------------------------------------------------------------------------------------------------
+
+I believe that it's time to start working on the CPU once again. At least while I try figuring out
+the MBC. This way, I will at least be able to continue making progress on the project while I'm
+figuring things out.
+
+I'll be picking this project back up when I go back to work on Thursday. I want to spend some time
+both planning The Eldritch Adventures of Kevin and Taco, along with putting my website together. I
+want to get the website published by August 11th, which means I need to at least have a half dozen
+articles polished and ready to publish. That'll give me a 3 month buffer of Bite Sized Game Design
+articles while I'm getting more written. I also want a half dozen Bite Sized Psych articles written
+so that I can publish those on the off weeks.
+
+I also want to do a much longer deep dive into a topic that better references and researchs a topic.
+
+2 - Bite Sized Game Design articles of (5 - 10 minute reads)
+2 - Bite Sized Game Psych articles of (5 - 10 minute reads)
+1 - Research paper style article (20 - 25 minute read)

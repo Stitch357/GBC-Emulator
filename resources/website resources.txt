@@ -12,6 +12,8 @@ https://mattbruv.github.io/gameboy-crust/
 
 https://rylev.github.io/DMG-01/public/book/
 
+https://retrocomputing.stackexchange.com/questions/11732/how-does-the-gameboys-memory-bank-switching-work
+
 
 Opcode Resources
 ---------------------------------------------------------------------------------------------------

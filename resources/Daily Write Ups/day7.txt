@@ -43,7 +43,7 @@ Needed Variables Completed
 Possibly not needed in the cartridge itself
 1)  Title                   --- Done
 2)  CGB Flag                --- Done
-3)  SBG Flag                ---
+3)  SBG Flag                --- Unneeded
 4)  MBC Code                ---
 5)  MBC Type                ---
 

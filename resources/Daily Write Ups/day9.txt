@@ -1,0 +1,7 @@
+8/4/24
+---------------------------------------------------------------------------------------------------
+
+This resource is going to be handy for beginning the work on the CPU. This should tell me the
+state of all registers after the BOOT ROM finishes.
+
+https://gbdev.io/pandocs/Power_Up_Sequence.html

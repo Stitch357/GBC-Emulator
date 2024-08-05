@@ -4,8 +4,11 @@
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/APU/apu.c.o
  /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/APU/apu.c
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/CPU/cpu.c.o
+ ../GBC_Emulator_Library/Structs/structs.h
  /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/cpu.c
+ /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/cpu.h
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Cartridge/cartridge.c.o
+ ../GBC_Emulator_Library/Enums/enum.h
  ../GBC_Emulator_Library/Structs/structs.h
  /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/cartridge.c
  /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/cartridge.h
@@ -14,6 +17,8 @@ CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB/gameboy.c.o
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o
  /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/PPU/ppu.c
 CMakeFiles/GBC_Emulator.dir/src/emu.c.o
+ ../GBC_Emulator_Library/CPU/cpu.h
  ../GBC_Emulator_Library/Cartridge/cartridge.h
+ ../GBC_Emulator_Library/Enums/enum.h
  ../GBC_Emulator_Library/Structs/structs.h
  /home/thill/Documents/Github/GBC-Emulator/src/emu.c

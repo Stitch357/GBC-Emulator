@@ -21,6 +21,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../GBC_Emulator_Library/GB"
   "../GBC_Emulator_Library/PPU"
   "../GBC_Emulator_Library/Structs"
+  "../GBC_Emulator_Library/Enums"
   )
 
 # Targets to which this target links.

@@ -1,37 +1,43 @@
 [
 {
   "directory": "/home/thill/Documents/Github/GBC-Emulator/build",
-  "command": "/usr/bin/cc  -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs  -g   -std=gnu11 -o CMakeFiles/GBC_Emulator.dir/src/emu.c.o   -c /home/thill/Documents/Github/GBC-Emulator/src/emu.c",
+  "command": "/usr/bin/cc  -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums  -g   -std=gnu11 -o CMakeFiles/GBC_Emulator.dir/src/emu.c.o   -c /home/thill/Documents/Github/GBC-Emulator/src/emu.c",
   "file": "/home/thill/Documents/Github/GBC-Emulator/src/emu.c"
 },
 
 {
   "directory": "/home/thill/Documents/Github/GBC-Emulator/build",
-  "command": "/usr/bin/cc  -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs  -g   -std=gnu11 -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/APU/apu.c.o   -c /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/APU/apu.c",
+  "command": "/usr/bin/cc  -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums  -g   -std=gnu11 -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/APU/apu.c.o   -c /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/APU/apu.c",
   "file": "/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/APU/apu.c"
 },
 
 {
   "directory": "/home/thill/Documents/Github/GBC-Emulator/build",
-  "command": "/usr/bin/cc  -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs  -g   -std=gnu11 -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/CPU/cpu.c.o   -c /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/cpu.c",
+  "command": "/usr/bin/cc  -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums  -g   -std=gnu11 -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/CPU/cpu.c.o   -c /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/cpu.c",
   "file": "/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/cpu.c"
 },
 
 {
   "directory": "/home/thill/Documents/Github/GBC-Emulator/build",
-  "command": "/usr/bin/cc  -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs  -g   -std=gnu11 -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Cartridge/cartridge.c.o   -c /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/cartridge.c",
+  "command": "/usr/bin/cc  -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums  -g   -std=gnu11 -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Cartridge/cartridge.c.o   -c /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/cartridge.c",
   "file": "/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/cartridge.c"
 },
 
 {
   "directory": "/home/thill/Documents/Github/GBC-Emulator/build",
-  "command": "/usr/bin/cc  -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs  -g   -std=gnu11 -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB/gameboy.c.o   -c /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/GB/gameboy.c",
+  "command": "/usr/bin/cc  -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums  -g   -std=gnu11 -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB/gameboy.c.o   -c /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/GB/gameboy.c",
   "file": "/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/GB/gameboy.c"
 },
 
 {
   "directory": "/home/thill/Documents/Github/GBC-Emulator/build",
-  "command": "/usr/bin/cc  -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs  -g   -std=gnu11 -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o   -c /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/PPU/ppu.c",
+  "command": "/usr/bin/cc  -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums  -g   -std=gnu11 -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.o   -c /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/MBC/mbc.c",
+  "file": "/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/MBC/mbc.c"
+},
+
+{
+  "directory": "/home/thill/Documents/Github/GBC-Emulator/build",
+  "command": "/usr/bin/cc  -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums  -g   -std=gnu11 -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o   -c /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/PPU/ppu.c",
   "file": "/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/PPU/ppu.c"
 }
 ]
