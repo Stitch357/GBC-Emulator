@@ -1,0 +1,27 @@
+8/4/24
+---------------------------------------------------------------------------------------------------
+
+This resource is going to be handy for beginning the work on the CPU. This should tell me the
+state of all registers after the BOOT ROM finishes.
+
+https://gbdev.io/pandocs/Power_Up_Sequence.html
+
+I started looking into this because one of my C resources sets register A to 0x11 when resetting
+the CPU. If I were to follow the BOOT ROM, then I wouldn't need to know that. But since I have
+no current plans to implement it yet, I don't need it.
+
+---------------------------------------------------------------------------------------------------
+
+The bulk of my work tonight has been converting the code to work from the GB struct. Structs
+don't seem to allow function calls inside of them, so I have to first create the struct than
+initialize the needed pieces. Easy enough! I can create a start up function if I really feel
+the need to remove the bulk of initialization from main.c.
+
+I spent some time reading up about the MBC's. It turns out that I was proceeding with a few
+gross misconceptions. The biggest one being that I needed to write the code to tell the MBC what
+to do. This is handled inside the ROM itself. Essentially the ROM contains code that sets specific
+areas of memory to the needed values, and then the MBC tells the CPU the correct location where
+that data is stored. For the emulator, I only need to worry about the MBC when there are reads
+and writes when targeting specific addresses. I believe addresses $4000 - $7FFF (for the ROM
+at least). I haven't started into looking at the RAM yet.
+

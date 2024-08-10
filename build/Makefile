@@ -231,6 +231,87 @@ GBC_Emulator_Library/GB/gameboy.c.s:
 	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB/gameboy.c.s
 .PHONY : GBC_Emulator_Library/GB/gameboy.c.s
 
+GBC_Emulator_Library/MBC/mbc.o: GBC_Emulator_Library/MBC/mbc.c.o
+
+.PHONY : GBC_Emulator_Library/MBC/mbc.o
+
+# target to build an object file
+GBC_Emulator_Library/MBC/mbc.c.o:
+	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.o
+.PHONY : GBC_Emulator_Library/MBC/mbc.c.o
+
+GBC_Emulator_Library/MBC/mbc.i: GBC_Emulator_Library/MBC/mbc.c.i
+
+.PHONY : GBC_Emulator_Library/MBC/mbc.i
+
+# target to preprocess a source file
+GBC_Emulator_Library/MBC/mbc.c.i:
+	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.i
+.PHONY : GBC_Emulator_Library/MBC/mbc.c.i
+
+GBC_Emulator_Library/MBC/mbc.s: GBC_Emulator_Library/MBC/mbc.c.s
+
+.PHONY : GBC_Emulator_Library/MBC/mbc.s
+
+# target to generate assembly for a file
+GBC_Emulator_Library/MBC/mbc.c.s:
+	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.s
+.PHONY : GBC_Emulator_Library/MBC/mbc.c.s
+
+GBC_Emulator_Library/Main_Instructions/mi.o: GBC_Emulator_Library/Main_Instructions/mi.c.o
+
+.PHONY : GBC_Emulator_Library/Main_Instructions/mi.o
+
+# target to build an object file
+GBC_Emulator_Library/Main_Instructions/mi.c.o:
+	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o
+.PHONY : GBC_Emulator_Library/Main_Instructions/mi.c.o
+
+GBC_Emulator_Library/Main_Instructions/mi.i: GBC_Emulator_Library/Main_Instructions/mi.c.i
+
+.PHONY : GBC_Emulator_Library/Main_Instructions/mi.i
+
+# target to preprocess a source file
+GBC_Emulator_Library/Main_Instructions/mi.c.i:
+	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.i
+.PHONY : GBC_Emulator_Library/Main_Instructions/mi.c.i
+
+GBC_Emulator_Library/Main_Instructions/mi.s: GBC_Emulator_Library/Main_Instructions/mi.c.s
+
+.PHONY : GBC_Emulator_Library/Main_Instructions/mi.s
+
+# target to generate assembly for a file
+GBC_Emulator_Library/Main_Instructions/mi.c.s:
+	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.s
+.PHONY : GBC_Emulator_Library/Main_Instructions/mi.c.s
+
+GBC_Emulator_Library/Misc/misc.o: GBC_Emulator_Library/Misc/misc.c.o
+
+.PHONY : GBC_Emulator_Library/Misc/misc.o
+
+# target to build an object file
+GBC_Emulator_Library/Misc/misc.c.o:
+	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.o
+.PHONY : GBC_Emulator_Library/Misc/misc.c.o
+
+GBC_Emulator_Library/Misc/misc.i: GBC_Emulator_Library/Misc/misc.c.i
+
+.PHONY : GBC_Emulator_Library/Misc/misc.i
+
+# target to preprocess a source file
+GBC_Emulator_Library/Misc/misc.c.i:
+	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.i
+.PHONY : GBC_Emulator_Library/Misc/misc.c.i
+
+GBC_Emulator_Library/Misc/misc.s: GBC_Emulator_Library/Misc/misc.c.s
+
+.PHONY : GBC_Emulator_Library/Misc/misc.s
+
+# target to generate assembly for a file
+GBC_Emulator_Library/Misc/misc.c.s:
+	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.s
+.PHONY : GBC_Emulator_Library/Misc/misc.c.s
+
 GBC_Emulator_Library/PPU/ppu.o: GBC_Emulator_Library/PPU/ppu.c.o
 
 .PHONY : GBC_Emulator_Library/PPU/ppu.o
@@ -257,6 +338,33 @@ GBC_Emulator_Library/PPU/ppu.s: GBC_Emulator_Library/PPU/ppu.c.s
 GBC_Emulator_Library/PPU/ppu.c.s:
 	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.s
 .PHONY : GBC_Emulator_Library/PPU/ppu.c.s
+
+GBC_Emulator_Library/Prefix_CB_Instructions/cbi.o: GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o
+
+.PHONY : GBC_Emulator_Library/Prefix_CB_Instructions/cbi.o
+
+# target to build an object file
+GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o:
+	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o
+.PHONY : GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o
+
+GBC_Emulator_Library/Prefix_CB_Instructions/cbi.i: GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.i
+
+.PHONY : GBC_Emulator_Library/Prefix_CB_Instructions/cbi.i
+
+# target to preprocess a source file
+GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.i:
+	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.i
+.PHONY : GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.i
+
+GBC_Emulator_Library/Prefix_CB_Instructions/cbi.s: GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.s
+
+.PHONY : GBC_Emulator_Library/Prefix_CB_Instructions/cbi.s
+
+# target to generate assembly for a file
+GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.s:
+	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.s
+.PHONY : GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.s
 
 src/emu.o: src/emu.c.o
 
@@ -306,9 +414,21 @@ help:
 	@echo "... GBC_Emulator_Library/GB/gameboy.o"
 	@echo "... GBC_Emulator_Library/GB/gameboy.i"
 	@echo "... GBC_Emulator_Library/GB/gameboy.s"
+	@echo "... GBC_Emulator_Library/MBC/mbc.o"
+	@echo "... GBC_Emulator_Library/MBC/mbc.i"
+	@echo "... GBC_Emulator_Library/MBC/mbc.s"
+	@echo "... GBC_Emulator_Library/Main_Instructions/mi.o"
+	@echo "... GBC_Emulator_Library/Main_Instructions/mi.i"
+	@echo "... GBC_Emulator_Library/Main_Instructions/mi.s"
+	@echo "... GBC_Emulator_Library/Misc/misc.o"
+	@echo "... GBC_Emulator_Library/Misc/misc.i"
+	@echo "... GBC_Emulator_Library/Misc/misc.s"
 	@echo "... GBC_Emulator_Library/PPU/ppu.o"
 	@echo "... GBC_Emulator_Library/PPU/ppu.i"
 	@echo "... GBC_Emulator_Library/PPU/ppu.s"
+	@echo "... GBC_Emulator_Library/Prefix_CB_Instructions/cbi.o"
+	@echo "... GBC_Emulator_Library/Prefix_CB_Instructions/cbi.i"
+	@echo "... GBC_Emulator_Library/Prefix_CB_Instructions/cbi.s"
 	@echo "... src/emu.o"
 	@echo "... src/emu.i"
 	@echo "... src/emu.s"

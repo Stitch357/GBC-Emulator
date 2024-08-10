@@ -86,6 +86,8 @@ static void load_cgb_flag(GB *gb) {
     if ((gb->cartridge.cart_rom[cbg_flag_addr] & 0x80) ||
         (gb->cartridge.cart_rom[cbg_flag_addr] & 0xC0)) {
         gb->cartridge.cgb = true;
+
+        printf("--- CGB Triggered ---\n");
         return;
     }
 }

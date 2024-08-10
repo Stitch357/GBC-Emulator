@@ -14,8 +14,11 @@ include_directories(
     "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/CPU"
     "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/Cartridge"
     "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/GB"
+    "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/Main Instructions"
     "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/MBC"
+    "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/Misc"
     "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/PPU"
+    "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/Prefix CB Instructions"
     "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/Structs"
     "${PROJECT_SOURCE_DIR}/GBC_Emulator_Library/Enums"
 )
@@ -27,8 +30,11 @@ add_executable(GBC_Emulator
     GBC_Emulator_Library/CPU/cpu.c
     GBC_Emulator_Library/Cartridge/cartridge.c
     GBC_Emulator_Library/GB/gameboy.c
+    GBC_Emulator_Library/Main\ Instructions/mi.c
     GBC_Emulator_Library/MBC/mbc.c
+    GBC_Emulator_Library/Misc/misc.c
     GBC_Emulator_Library/PPU/ppu.c
+    GBC_Emulator_Library/Prefix\ CB\ Instructions/cbi.c
 )
 
 # Specify any necessary libraries to link with (if applicable)

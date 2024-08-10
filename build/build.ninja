@@ -64,51 +64,72 @@ build cmake_object_order_depends_target_GBC_Emulator: phony || CMakeFiles/GBC_Em
 build CMakeFiles/GBC_Emulator.dir/src/emu.c.o: C_COMPILER__GBC_Emulator ../src/emu.c || cmake_object_order_depends_target_GBC_Emulator
   DEP_FILE = CMakeFiles/GBC_Emulator.dir/src/emu.c.o.d
   FLAGS = -g   -std=gnu11
-  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
+  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I"../GBC_Emulator_Library/Main Instructions" -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/Misc -I../GBC_Emulator_Library/PPU -I"../GBC_Emulator_Library/Prefix CB Instructions" -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
   OBJECT_DIR = CMakeFiles/GBC_Emulator.dir
   OBJECT_FILE_DIR = CMakeFiles/GBC_Emulator.dir/src
 
 build CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/APU/apu.c.o: C_COMPILER__GBC_Emulator ../GBC_Emulator_Library/APU/apu.c || cmake_object_order_depends_target_GBC_Emulator
   DEP_FILE = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/APU/apu.c.o.d
   FLAGS = -g   -std=gnu11
-  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
+  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I"../GBC_Emulator_Library/Main Instructions" -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/Misc -I../GBC_Emulator_Library/PPU -I"../GBC_Emulator_Library/Prefix CB Instructions" -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
   OBJECT_DIR = CMakeFiles/GBC_Emulator.dir
   OBJECT_FILE_DIR = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/APU
 
 build CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/CPU/cpu.c.o: C_COMPILER__GBC_Emulator ../GBC_Emulator_Library/CPU/cpu.c || cmake_object_order_depends_target_GBC_Emulator
   DEP_FILE = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/CPU/cpu.c.o.d
   FLAGS = -g   -std=gnu11
-  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
+  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I"../GBC_Emulator_Library/Main Instructions" -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/Misc -I../GBC_Emulator_Library/PPU -I"../GBC_Emulator_Library/Prefix CB Instructions" -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
   OBJECT_DIR = CMakeFiles/GBC_Emulator.dir
   OBJECT_FILE_DIR = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/CPU
 
 build CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Cartridge/cartridge.c.o: C_COMPILER__GBC_Emulator ../GBC_Emulator_Library/Cartridge/cartridge.c || cmake_object_order_depends_target_GBC_Emulator
   DEP_FILE = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Cartridge/cartridge.c.o.d
   FLAGS = -g   -std=gnu11
-  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
+  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I"../GBC_Emulator_Library/Main Instructions" -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/Misc -I../GBC_Emulator_Library/PPU -I"../GBC_Emulator_Library/Prefix CB Instructions" -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
   OBJECT_DIR = CMakeFiles/GBC_Emulator.dir
   OBJECT_FILE_DIR = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Cartridge
 
 build CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB/gameboy.c.o: C_COMPILER__GBC_Emulator ../GBC_Emulator_Library/GB/gameboy.c || cmake_object_order_depends_target_GBC_Emulator
   DEP_FILE = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB/gameboy.c.o.d
   FLAGS = -g   -std=gnu11
-  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
+  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I"../GBC_Emulator_Library/Main Instructions" -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/Misc -I../GBC_Emulator_Library/PPU -I"../GBC_Emulator_Library/Prefix CB Instructions" -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
   OBJECT_DIR = CMakeFiles/GBC_Emulator.dir
   OBJECT_FILE_DIR = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB
+
+build CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o: C_COMPILER__GBC_Emulator ../GBC_Emulator_Library/Main$ Instructions/mi.c || cmake_object_order_depends_target_GBC_Emulator
+  DEP_FILE = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o.d
+  FLAGS = -g   -std=gnu11
+  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I"../GBC_Emulator_Library/Main Instructions" -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/Misc -I../GBC_Emulator_Library/PPU -I"../GBC_Emulator_Library/Prefix CB Instructions" -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
+  OBJECT_DIR = CMakeFiles/GBC_Emulator.dir
+  OBJECT_FILE_DIR = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions
 
 build CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.o: C_COMPILER__GBC_Emulator ../GBC_Emulator_Library/MBC/mbc.c || cmake_object_order_depends_target_GBC_Emulator
   DEP_FILE = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.o.d
   FLAGS = -g   -std=gnu11
-  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
+  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I"../GBC_Emulator_Library/Main Instructions" -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/Misc -I../GBC_Emulator_Library/PPU -I"../GBC_Emulator_Library/Prefix CB Instructions" -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
   OBJECT_DIR = CMakeFiles/GBC_Emulator.dir
   OBJECT_FILE_DIR = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC
+
+build CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.o: C_COMPILER__GBC_Emulator ../GBC_Emulator_Library/Misc/misc.c || cmake_object_order_depends_target_GBC_Emulator
+  DEP_FILE = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.o.d
+  FLAGS = -g   -std=gnu11
+  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I"../GBC_Emulator_Library/Main Instructions" -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/Misc -I../GBC_Emulator_Library/PPU -I"../GBC_Emulator_Library/Prefix CB Instructions" -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
+  OBJECT_DIR = CMakeFiles/GBC_Emulator.dir
+  OBJECT_FILE_DIR = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc
 
 build CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o: C_COMPILER__GBC_Emulator ../GBC_Emulator_Library/PPU/ppu.c || cmake_object_order_depends_target_GBC_Emulator
   DEP_FILE = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o.d
   FLAGS = -g   -std=gnu11
-  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/PPU -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
+  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I"../GBC_Emulator_Library/Main Instructions" -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/Misc -I../GBC_Emulator_Library/PPU -I"../GBC_Emulator_Library/Prefix CB Instructions" -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
   OBJECT_DIR = CMakeFiles/GBC_Emulator.dir
   OBJECT_FILE_DIR = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU
+
+build CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o: C_COMPILER__GBC_Emulator ../GBC_Emulator_Library/Prefix$ CB$ Instructions/cbi.c || cmake_object_order_depends_target_GBC_Emulator
+  DEP_FILE = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o.d
+  FLAGS = -g   -std=gnu11
+  INCLUDES = -I../GBC_Emulator_Library/APU -I../GBC_Emulator_Library/CPU -I../GBC_Emulator_Library/Cartridge -I../GBC_Emulator_Library/GB -I"../GBC_Emulator_Library/Main Instructions" -I../GBC_Emulator_Library/MBC -I../GBC_Emulator_Library/Misc -I../GBC_Emulator_Library/PPU -I"../GBC_Emulator_Library/Prefix CB Instructions" -I../GBC_Emulator_Library/Structs -I../GBC_Emulator_Library/Enums
+  OBJECT_DIR = CMakeFiles/GBC_Emulator.dir
+  OBJECT_FILE_DIR = CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions
 
 
 # =============================================================================
@@ -118,7 +139,7 @@ build CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o: C_COMPILER__
 #############################################
 # Link the executable GBC_Emulator
 
-build GBC_Emulator: C_EXECUTABLE_LINKER__GBC_Emulator CMakeFiles/GBC_Emulator.dir/src/emu.c.o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/APU/apu.c.o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/CPU/cpu.c.o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Cartridge/cartridge.c.o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB/gameboy.c.o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o
+build GBC_Emulator: C_EXECUTABLE_LINKER__GBC_Emulator CMakeFiles/GBC_Emulator.dir/src/emu.c.o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/APU/apu.c.o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/CPU/cpu.c.o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Cartridge/cartridge.c.o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB/gameboy.c.o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/GBC_Emulator.dir
   POST_BUILD = :

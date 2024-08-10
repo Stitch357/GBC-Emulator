@@ -122,9 +122,48 @@ CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB/gameboy.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB/gameboy.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/GB/gameboy.c -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB/gameboy.c.s
 
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o: CMakeFiles/GBC_Emulator.dir/flags.make
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o: ../GBC_Emulator_Library/Main\ Instructions/mi.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o   -c "/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Main Instructions/mi.c"
+
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Main Instructions/mi.c" > CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.i
+
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Main Instructions/mi.c" -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.s
+
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.o: CMakeFiles/GBC_Emulator.dir/flags.make
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.o: ../GBC_Emulator_Library/MBC/mbc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.o   -c /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/MBC/mbc.c
+
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/MBC/mbc.c > CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.i
+
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/MBC/mbc.c -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.s
+
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.o: CMakeFiles/GBC_Emulator.dir/flags.make
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.o: ../GBC_Emulator_Library/Misc/misc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.o   -c /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Misc/misc.c
+
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Misc/misc.c > CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.i
+
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Misc/misc.c -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.s
+
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o: CMakeFiles/GBC_Emulator.dir/flags.make
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o: ../GBC_Emulator_Library/PPU/ppu.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o   -c /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/PPU/ppu.c
 
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.i: cmake_force
@@ -135,6 +174,19 @@ CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/PPU/ppu.c -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.s
 
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o: CMakeFiles/GBC_Emulator.dir/flags.make
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o: ../GBC_Emulator_Library/Prefix\ CB\ Instructions/cbi.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o   -c "/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Prefix CB Instructions/cbi.c"
+
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Prefix CB Instructions/cbi.c" > CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.i
+
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Prefix CB Instructions/cbi.c" -o CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.s
+
 # Object files for target GBC_Emulator
 GBC_Emulator_OBJECTS = \
 "CMakeFiles/GBC_Emulator.dir/src/emu.c.o" \
@@ -142,7 +194,11 @@ GBC_Emulator_OBJECTS = \
 "CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/CPU/cpu.c.o" \
 "CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Cartridge/cartridge.c.o" \
 "CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB/gameboy.c.o" \
-"CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o"
+"CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o" \
+"CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.o" \
+"CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.o" \
+"CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o" \
+"CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o"
 
 # External object files for target GBC_Emulator
 GBC_Emulator_EXTERNAL_OBJECTS =
@@ -152,10 +208,14 @@ GBC_Emulator: CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/APU/apu.c.o
 GBC_Emulator: CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/CPU/cpu.c.o
 GBC_Emulator: CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Cartridge/cartridge.c.o
 GBC_Emulator: CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB/gameboy.c.o
+GBC_Emulator: CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o
+GBC_Emulator: CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.o
+GBC_Emulator: CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.o
 GBC_Emulator: CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o
+GBC_Emulator: CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o
 GBC_Emulator: CMakeFiles/GBC_Emulator.dir/build.make
 GBC_Emulator: CMakeFiles/GBC_Emulator.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable GBC_Emulator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking C executable GBC_Emulator"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GBC_Emulator.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

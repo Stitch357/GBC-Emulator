@@ -74,12 +74,12 @@ clean: CMakeFiles/GBC_Emulator.dir/clean
 CMakeFiles/GBC_Emulator.dir/all:
 	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/depend
 	$(MAKE) -f CMakeFiles/GBC_Emulator.dir/build.make CMakeFiles/GBC_Emulator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target GBC_Emulator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target GBC_Emulator"
 .PHONY : CMakeFiles/GBC_Emulator.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/GBC_Emulator.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/GBC_Emulator.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/thill/Documents/Github/GBC-Emulator/build/CMakeFiles 0
 .PHONY : CMakeFiles/GBC_Emulator.dir/rule

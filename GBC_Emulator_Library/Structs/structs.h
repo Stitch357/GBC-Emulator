@@ -7,25 +7,27 @@
 #include <stdbool.h>
 
 typedef struct registers {
-    uint8_t A;                          // 8-bit Accumulator Register
-    uint8_t B;                          // 8-bit General Register
-    uint8_t C;                          //          |
-    uint8_t D;                          //          |
-    uint8_t E;                          //          |
-    uint8_t H;                          //          |
-    uint8_t L;                          // _____________________
+    uint16_t AF;                        // 8-bit General Register
+    uint16_t BC;                        //          |
+    uint16_t DE;                        //          |
+    uint16_t HL;                        // _____________________
 
-    bool ZF;                            // Zero Flag
-    bool SF;                            // Subtract Flag
-    bool HC;                            // Half-Carry Flag - (Nibble Carry)
-    bool CA;                            // Carry Flag      - (Byte Carry)
+    bool HALT;
 } REGS;
 
 typedef struct cpu {
-    REGS regs;
+    REGS regs;                          // CPU register struct
 
     uint16_t SP;                        // Stack Pointer
     uint16_t PC;                        // Program Counter
+
+    int cycle;                          // Cycle count for debugging
+    int cycle_count;                    // Contains the cycle count to increment by
+    
+    bool prefix_cb_check;               // 
+    uint8_t opcode;                     // Contains the instruction opcode
+    uint8_t first_byte;                 // Contains the first byte following the instruction
+    uint8_t second_byte;                // Contains the second byte following the instruction
 } CPU;
 
 typedef struct cart {
@@ -84,5 +86,8 @@ typedef struct gameboy {
     uint8_t hi_ram[0x7F];               // High RAM                     (127 bytes)
     uint8_t interrupt_enable[0x1];      // Interrupt Enable Register    (1 byte)
 } GB;
+
+typedef void (*main_instruction_set)(GB *);
+typedef void (*cb_prefix_instruction_set)(GB *);
 
 #endif

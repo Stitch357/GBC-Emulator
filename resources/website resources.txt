@@ -1,5 +1,5 @@
 Technical Resources
----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 https://gbdev.io/pandocs/
 
 https://archive.org/details/GameBoyProgManVer1.1/page/n85/mode/2up
@@ -16,42 +16,42 @@ https://retrocomputing.stackexchange.com/questions/11732/how-does-the-gameboys-m
 
 
 Opcode Resources
----------------------------------------------------------------------------------------------------
-https://rgbds.gbdev.io/docs/v0.8.0           <--- Best one so far
+----------------------------------------------------------------------------------------------------------------------------------------
+https://rgbds.gbdev.io/docs/v0.8.0                                      <--- Best one for explanation
 
 https://github.com/gbdev/awesome-gbdev?tab=readme-ov-file#opcodes
 
-https://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html
+https://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html             <--- Visual graph of opcodes for codes
 
 
 Gameboy CPU Manual
----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 https://realboyemulator.wordpress.com/wp-content/uploads/2013/01/gbcpuman.pdf
 
 
 CMake Resources
----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 https://cmake.org/cmake/help/latest/guide/tutorial/A%20Basic%20Starting%20Point.html
 
 
 Boot ROM Start Up Resources
----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 https://realboyemulator.wordpress.com/2013/01/03/a-look-at-the-game-boy-bootstrap-let-the-fun-begin/
 
 https://retrocomputing.stackexchange.com/questions/19549/startup-behavior-of-gameboy-what-to-replicate-in-an-emulator
 
 
 Gameboy Clock Accuracy Challenge
----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 https://github.com/jkotlinski/gbchrono
 
 
 Gameboy/Gameboy Color Emulator Written in C
----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 https://github.com/simias/gaembuoy/tree/master
 
 
 Z80 Instruction Timing Information
----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 https://raphaelstaebler.medium.com/building-a-gameboy-from-scratch-part-1-51d05496783e
 https://floooh.github.io/2021/12/06/z80-instruction-timing.html#m-cycles-and-t-states

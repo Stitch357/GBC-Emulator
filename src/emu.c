@@ -6,15 +6,13 @@
 #include "structs.h"
 #include "cartridge.h"
 #include "cpu.h"
+#include "misc.h"
 
 // Used in testing
 #define debugging false
 
 int main(int argc, char *argv[]) {
-    GB gbc;
-    
-    cpu_initialize(&gbc);     // Make sure to initialize the CPU stats
-    print_cpu_stats(&gbc);
+    GB gbc;                                             // Initialize the Gameboy
 
     if (argc < 2) {
         printf("Usage: %s <ROM file path>\n", argv[0]);
@@ -29,8 +27,10 @@ int main(int argc, char *argv[]) {
         printf("Loading ROM: %s\n", rom_path);
     }
 
-    initialize_cart(&gbc);
-    load_cartridge(&gbc, rom_path);
+    initialize_cart(&gbc);                              // Initialize the cartridge
+    load_cartridge(&gbc, rom_path);                     // Load the cartridge ROM to memory
+
+    cpu_initialize(&gbc);                               // Make sure to initialize the CPU stats
 
     if (debugging) {
         print_cart(&gbc);
@@ -39,6 +39,24 @@ int main(int argc, char *argv[]) {
         printf("-------------------------------\n");
         printf("Program is working for GB\n");
         printf("-------------------------------\n");
+    }
+
+    int ch;
+    bool running = true;
+
+    while (running) {
+        print_cpu_stats(&gbc);
+
+        printf("Press Enter to continue CPU cycling.....\n");
+        printf("Press anykey to quit.....\n");
+        ch = getch();
+        //printf("\nYou pressed: %c (ASCII: %d)\n", ch, ch);
+
+        if (ch != 10) {
+            running = false;
+        }
+
+        cycle_cpu(&gbc);
     }
 
     return 0;

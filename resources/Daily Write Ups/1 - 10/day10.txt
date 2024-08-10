@@ -1,0 +1,9 @@
+8/4/24
+---------------------------------------------------------------------------------------------------
+
+https://raphaelstaebler.medium.com/building-a-gameboy-from-scratch-part-1-51d05496783e
+
+After reading more of the documentation, I finally found the answer I was looking for in
+regards to setting register A to 0x11.
+
+https://gbdev.io/pandocs/CGB_Registers.html
