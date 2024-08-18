@@ -1,3 +1,7 @@
+#include "cbi.h"
+#include "cpu.h"
+#include "structs.h"
+
 // 0x00
 // 0x01
 // 0x02
@@ -269,3 +273,7 @@
 // 0xFD
 // 0xFE
 // 0xFF
+
+cb_prefix_instruction_set cb_prefix_instructions[0x100] = {
+
+};

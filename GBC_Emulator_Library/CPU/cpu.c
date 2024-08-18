@@ -8,7 +8,7 @@
 #include "structs.h"
 
 // Used in testing
-#define debugging false
+#define debugging true
 
 void set_register_top_byte(uint16_t* reg, uint8_t value) {
     *reg = (*reg & 0x00FF) | ((uint16_t)value << 8);
@@ -31,25 +31,29 @@ uint8_t access_register_bottom_byte(uint16_t reg) {
 }
 
 uint8_t access_zero_flag(uint16_t reg) {
-    uint8_t temp_value = reg & 0x80;
+    uint8_t F = access_register_bottom_byte(reg);
+    uint8_t temp_value = (F >> 7) & 1;
 
     return temp_value;
 }
 
 uint8_t access_sub_flag(uint16_t reg) {
-    uint8_t temp_value = reg & 0x40;
+    uint8_t F = access_register_bottom_byte(reg);
+    uint8_t temp_value = (F >> 6) & 1;
 
     return temp_value;
 }
 
 uint8_t access_half_carry_flag(uint16_t reg) {
-    uint8_t temp_value = reg & 0x20;
+    uint8_t F = access_register_bottom_byte(reg);
+    uint8_t temp_value = (F >> 5) & 1;
 
     return temp_value;
 }
 
 uint8_t access_carry_flag(uint16_t reg) {
-    uint8_t temp_value = reg & 0x10;
+    uint8_t F = access_register_bottom_byte(reg);
+    uint8_t temp_value = (F >> 4) & 1;
 
     return temp_value;
 }
@@ -75,16 +79,12 @@ void cpu_initialize(GB *gb) {
 
     gb->cpu.prefix_cb_check = false;
     gb->cpu.opcode = 0x00;
-    gb->cpu.first_byte = 0x00;
-    gb->cpu.second_byte = 0x00;
 }
 
 void print_cpu_stats(GB *gb) {
     printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
     printf("Cycle        ---> %d\n", gb->cpu.cycle);
     printf("Opcode       ---> 0x%02X\n", gb->cpu.opcode);
-    printf("First Byte   ---> 0x%02X\n", gb->cpu.first_byte);
-    printf("Second Byte  ---> 0x%02X\n", gb->cpu.second_byte);
     printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
     printf("        ┏━━━━━━━━━━━━┓                  ┏━━━━━━━━━━━━┓\n");
     printf("        ┃     A      ┃        =         ┃    0x%02X    ┃\n", access_register_top_byte(gb->cpu.regs.AF));
@@ -120,37 +120,36 @@ void print_cpu_stats(GB *gb) {
     printf("\n");
 }
 
-static void fetch_instruction(GB *gb) {
-
-}
-
-static void decode_instruction(GB *gb) {
-
-}
-
-static void execute_instruction(GB *gb) {
-
-}
-
 static void process_instruction(GB *gb) {
+    // Get the current opcode from the cartridge ROM
+    uint8_t opcode = gb->cartridge.cart_rom[gb->cpu.PC];
 
+    // Set the gb's CPU current opcode
+    gb->cpu.opcode = opcode;
+    
+    if (opcode != 0xCB) {
+        main_instructions[indicies[opcode]](gb);
+    }
+    else if (opcode == 0xCB) {
+        opcode = gb->cartridge.cart_rom[gb->cpu.PC + 1];
+
+        cb_prefix_instructions[indicies[opcode]](gb);
+    }
 }
 
-static void increment_instruction(GB *gb) {
-
+static void increment_cycle(GB *gb) {
+    // Cycles are in M-Cycles rather than T-cycles
+    gb->cpu.cycle += gb->cpu.cycle_count;
 }
 
 void cycle_cpu(GB *gb) {
+    // Reset the cycle count
+    gb->cpu.cycle_count = 0;
+
     process_instruction(gb);
 
-    increment_instruction(gb);
+    increment_cycle(gb);
 }
-
-static main_instruction_set main_instructions[0x100] = {
-    // 0x00
-    mi_nop,
-    
-};
 
 static cb_prefix_instruction_set prefix_cb_instructions[0x100] = {
 

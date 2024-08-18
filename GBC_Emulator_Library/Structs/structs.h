@@ -26,8 +26,6 @@ typedef struct cpu {
     
     bool prefix_cb_check;               // 
     uint8_t opcode;                     // Contains the instruction opcode
-    uint8_t first_byte;                 // Contains the first byte following the instruction
-    uint8_t second_byte;                // Contains the second byte following the instruction
 } CPU;
 
 typedef struct cart {
@@ -87,7 +85,8 @@ typedef struct gameboy {
     uint8_t interrupt_enable[0x1];      // Interrupt Enable Register    (1 byte)
 } GB;
 
-typedef void (*main_instruction_set)(GB *);
-typedef void (*cb_prefix_instruction_set)(GB *);
+// Declare the instructions array
+typedef void (*main_instruction_set)(GB* gb);
+typedef void (*cb_prefix_instruction_set)(GB* gb);
 
 #endif

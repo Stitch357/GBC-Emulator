@@ -1,0 +1,37 @@
+8/17/24
+---------------------------------------------------------------------------------------------------
+
+I've been a little lax on keeping up with writing about this. And it's biting me today because
+I have to go back and read the code instead of this.
+
+The main bulk of what I've been doing is reworking the CPU registers. I figured out that it would
+be easier on me to deal with the hassle of accessing the part I need, rather than having to
+frequently recombine the separate registers into one. This is because there are plenty of
+instructions that require the use of combined registers. Specifically, the trouble comes because
+of the instructions that increment, or decrement, the combined registers.
+
+Realistically, it isn't an issue to recombine them, but this also gets me closer to how the
+machine code actually works. For example, things like this.
+
+uint8_t temp_value = (reg >> 8) & 0xFF;
+
+What this does is take the register, shifts the bits right by 8 places and then masks those bits.
+This allows me to access the top 8 bits of the register and save them in the temp_value variable.
+It's much easier for me to understand that rather than combining.
+
+uint16_t combined = ((uint16_t)(high_byte & 0xFF) << 8) | (low_byte & 0xFF);
+
+---------------------------------------------------------------------------------------------------
+
+The other part of my work consisted of starting the implementation of the Main Instruction Set.
+
+For the most part, the implementation is going to be tedious. It's just a matter of doing the leg
+work. To make things better, 0x40 - 0xBF follow a simple pattern. 0x0 - 0x7 are a single instruction
+then 0x8 - 0xF are another instruction. It always uses B, C, D, E, H, L, HL, & A in that order. By
+taking the bottom digit of the opcode we can figure out exactly which variable we need to use.
+
+For example, if the lower digit is less than 7 it maps perfectly to the array of string literals
+shown below. Any digit 8 - F can just have 8 subtracted to correctly access the string literal.
+By doing this I can use a single switch statement to access the correct value.
+
+char* registers[8] = { "B", "C", "D", "E", "H", "L", "HL", "A" };

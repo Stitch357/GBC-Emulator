@@ -7,22 +7,18 @@
 #IncludeRegexTransform: 
 
 ../GBC_Emulator_Library/CPU/cpu.h
+mi.h
+../GBC_Emulator_Library/CPU/mi.h
+cbi.h
+../GBC_Emulator_Library/CPU/cbi.h
 structs.h
 ../GBC_Emulator_Library/CPU/structs.h
-
-../GBC_Emulator_Library/Cartridge/cartridge.h
-structs.h
-../GBC_Emulator_Library/Cartridge/structs.h
-enum.h
-../GBC_Emulator_Library/Cartridge/enum.h
-
-../GBC_Emulator_Library/Enums/enum.h
-
-../GBC_Emulator_Library/Main Instructions/mi.h
 
 ../GBC_Emulator_Library/Misc/misc.h
 
 ../GBC_Emulator_Library/Prefix CB Instructions/cbi.h
+structs.h
+../GBC_Emulator_Library/Prefix CB Instructions/structs.h
 
 ../GBC_Emulator_Library/Structs/structs.h
 stdlib.h
@@ -34,95 +30,17 @@ stdint.h
 stdbool.h
 -
 
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/APU/apu.c
-
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/cpu.c
-stdlib.h
--
-stdint.h
--
-errno.h
--
-cpu.h
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/cpu.h
-mi.h
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/mi.h
-cbi.h
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/cbi.h
-structs.h
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/structs.h
-
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/cpu.h
-structs.h
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/structs.h
-
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/cartridge.c
-stdlib.h
--
-stdint.h
--
-errno.h
--
-cartridge.h
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/cartridge.h
-structs.h
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/structs.h
-
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/cartridge.h
-structs.h
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/structs.h
-enum.h
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/enum.h
-
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/GB/gameboy.c
-gameboy.h
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/GB/gameboy.h
-
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/GB/gameboy.h
-
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/MBC/mbc.c
-
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Main Instructions/mi.c
+mi.h
+/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Main Instructions/mi.h
 cpu.h
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Main Instructions/cpu.h
 structs.h
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Main Instructions/structs.h
-
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Misc/misc.c
-stdio.h
--
-stdlib.h
--
-unistd.h
--
-termios.h
--
-fcntl.h
--
 misc.h
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Misc/misc.h
+/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Main Instructions/misc.h
 
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Misc/misc.h
-
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/PPU/ppu.c
-
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Prefix CB Instructions/cbi.c
-
-/home/thill/Documents/Github/GBC-Emulator/src/emu.c
-stdlib.h
--
-stdio.h
--
-SDL2/SDL.h
--
-SDL2/SDL_ttf.h
--
+/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Main Instructions/mi.h
 structs.h
-/home/thill/Documents/Github/GBC-Emulator/src/structs.h
-cartridge.h
-/home/thill/Documents/Github/GBC-Emulator/src/cartridge.h
-cpu.h
-/home/thill/Documents/Github/GBC-Emulator/src/cpu.h
-misc.h
-/home/thill/Documents/Github/GBC-Emulator/src/misc.h
+/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Main Instructions/structs.h
 

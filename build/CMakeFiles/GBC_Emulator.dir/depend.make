@@ -20,20 +20,29 @@ CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB/gameboy.c.o: ../GBC_Emulator
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.o: ../GBC_Emulator_Library/MBC/mbc.c
 
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o: ../GBC_Emulator_Library/CPU/cpu.h
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o: ../GBC_Emulator_Library/Misc/misc.h
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o: ../GBC_Emulator_Library/Prefix\ CB\ Instructions/cbi.h
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o: ../GBC_Emulator_Library/Structs/structs.h
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o: ../GBC_Emulator_Library/Main\ Instructions/mi.c
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o: ../GBC_Emulator_Library/Main\ Instructions/mi.h
 
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.o: ../GBC_Emulator_Library/Misc/misc.c
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Misc/misc.c.o: ../GBC_Emulator_Library/Misc/misc.h
 
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/PPU/ppu.c.o: ../GBC_Emulator_Library/PPU/ppu.c
 
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o: ../GBC_Emulator_Library/CPU/cpu.h
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o: ../GBC_Emulator_Library/Main\ Instructions/mi.h
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o: ../GBC_Emulator_Library/Structs/structs.h
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o: ../GBC_Emulator_Library/Prefix\ CB\ Instructions/cbi.c
+CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Prefix_CB_Instructions/cbi.c.o: ../GBC_Emulator_Library/Prefix\ CB\ Instructions/cbi.h
 
 CMakeFiles/GBC_Emulator.dir/src/emu.c.o: ../GBC_Emulator_Library/CPU/cpu.h
 CMakeFiles/GBC_Emulator.dir/src/emu.c.o: ../GBC_Emulator_Library/Cartridge/cartridge.h
 CMakeFiles/GBC_Emulator.dir/src/emu.c.o: ../GBC_Emulator_Library/Enums/enum.h
+CMakeFiles/GBC_Emulator.dir/src/emu.c.o: ../GBC_Emulator_Library/Main\ Instructions/mi.h
 CMakeFiles/GBC_Emulator.dir/src/emu.c.o: ../GBC_Emulator_Library/Misc/misc.h
+CMakeFiles/GBC_Emulator.dir/src/emu.c.o: ../GBC_Emulator_Library/Prefix\ CB\ Instructions/cbi.h
 CMakeFiles/GBC_Emulator.dir/src/emu.c.o: ../GBC_Emulator_Library/Structs/structs.h
 CMakeFiles/GBC_Emulator.dir/src/emu.c.o: ../src/emu.c
 

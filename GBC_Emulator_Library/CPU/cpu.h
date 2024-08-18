@@ -1,6 +1,8 @@
 #ifndef CPU_H
 #define CPU_H
 
+#include "mi.h"
+#include "cbi.h"
 #include "structs.h"
 
 void set_register_top_byte(uint16_t* reg, uint8_t value);
@@ -21,9 +23,8 @@ uint8_t access_carry_flag(uint16_t reg);
 void cpu_initialize(GB *gb);
 void print_cpu_stats(GB *gb);
 
-static void fetch_instruction(GB *gb);
-static void decode_instruction(GB *gb);
-static void execute_instruction(GB *gb);
+void mi_nop();
+
 static void process_instruction(GB *gb);
 static void increment_instruction(GB *gb);
 

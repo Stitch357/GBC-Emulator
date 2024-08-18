@@ -45,6 +45,8 @@ int main(int argc, char *argv[]) {
     bool running = true;
 
     while (running) {
+        cycle_cpu(&gbc);
+
         print_cpu_stats(&gbc);
 
         printf("Press Enter to continue CPU cycling.....\n");
@@ -55,8 +57,6 @@ int main(int argc, char *argv[]) {
         if (ch != 10) {
             running = false;
         }
-
-        cycle_cpu(&gbc);
     }
 
     return 0;

@@ -1,0 +1,47 @@
+8/18/24
+---------------------------------------------------------------------------------------------------
+
+There's a small problem with my main instruction set. I don't have a full 256 instructions because
+I'm generalizing away roughly 111 instructions. Rather than implementing LD B, B - LD B, C - etc...
+I'm creating a single generic instruction for that set. What this means is that I only need the
+function pointer array to contain 133 slots.
+
+However, this is where the problem lies. By not implementing 123 instructions it throws the indexing
+of the array off. Take 0x40 for example. Its index is 64, but 0x48's index is 65. This leads to
+a discrepancy of 7 places. The problem only grows as the implementation continues. 0xC0's index is
+81, but 0xC0 translate to 192. I don't want to implement the 123 instructions because it's a lot
+of tedious work.
+
+So what does this mean is that I have a few options to choose from. For example, a switch statement,
+creating a map/dictionary, hash map, etc... The simplest option with the least code was an indicies
+array.
+
+int indicies[0x100] = {...}
+
+This has an incredibly efficient processing time, while also sparing me from having to write a ton
+of extra code. What it boils down to is a lookup table of indicies for the opcode functions.
+
+main_instructions[indicies[opcode]](gb);
+
+---------------------------------------------------------------------------------------------------
+
+I'm going to call it here for today.
+
+I got NOP - JR Z, r8 - JP a16 - CP d8 all implemented. There are still a few things that I find
+confusing, but that will come with time and experience. Take these for example.
+
+gb->cpu.regs.AF |= (1 << 7); - I know this one sets the Zero flag bit
+gb->cpu.regs.AF &= ~(1 << 7); - I know this one clears the Zero flag bit
+
+But I'm still having trouble with the bitwise operator syntax. I know | is bitwise OR, & is bitwise
+AND, and ~ is bitwise NOT. But my brain hasn't fully connected the concepts to bits yet. That's okay!
+I understand the concepts using variables such as GMS2's GML &&, ||, & ! operations. Same thing but
+for variables. The problem with bitwise is I haven't connected the operators to bits yet.
+
+---------------------------------------------------------------------------------------------------
+
+I'll be picking this up again next week. I'm finding it helpful to rotate the projects I work on
+every couple of days. I'll be working on The Eldritch Adventure's again the next couple of days.
+Along with doing research into Certs. I think the first ones I'll look at are Tableau, AWS, Docker,
+and Kubernetes. I should also look into more complicated ones like networking, cybersecurity, and
+a few others.

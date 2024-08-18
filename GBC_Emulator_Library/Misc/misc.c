@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <unistd.h>
 #include <termios.h>
 #include <fcntl.h>
@@ -22,4 +23,14 @@ int getch(void) {
     tcsetattr(STDIN_FILENO, TCSANOW, &oldt);  // Restore old terminal attributes
     
     return ch;  // Return the character
+}
+
+void print_bits(uint16_t value) {
+    for (int i = 15; i >= 0; i--) {
+        printf("%d", (value >> i) & 1);
+        if (i % 4 == 0) {
+            printf(" "); // Add a space every 4 bits for readability
+        }
+    }
+    printf("\n");
 }

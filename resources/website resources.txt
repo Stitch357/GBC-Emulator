@@ -17,7 +17,9 @@ https://retrocomputing.stackexchange.com/questions/11732/how-does-the-gameboys-m
 
 Opcode Resources
 ----------------------------------------------------------------------------------------------------------------------------------------
-https://rgbds.gbdev.io/docs/v0.8.0                                      <--- Best one for explanation
+https://rgbds.gbdev.io/docs/v0.8.0            
+
+http://marc.rawer.de/Gameboy/Docs/GBCPUman.pdf                          <--- Best one for explanation
 
 https://github.com/gbdev/awesome-gbdev?tab=readme-ov-file#opcodes
 
