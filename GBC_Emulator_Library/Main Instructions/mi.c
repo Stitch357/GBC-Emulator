@@ -5,9 +5,62 @@
 
 #define debugging true
 
+void set_temp_register(GB* gb, uint8_t reg) {
+    switch (reg) {
+        case 0x00:  // B
+            gb->cpu.regs.temp_reg = (gb->cpu.regs.BC >> 8) & 0xFF;
+        break;
+
+        case 0x01:  // C
+            gb->cpu.regs.temp_reg = (gb->cpu.regs.BC) & 0xFF;
+        break;
+
+        case 0x02:  // D
+            gb->cpu.regs.temp_reg = (gb->cpu.regs.DE >> 8) & 0xFF;
+        break;
+
+        case 0x03:  // E
+            gb->cpu.regs.temp_reg = (gb->cpu.regs.DE) & 0xFF;
+        break;
+
+        case 0x04:  // H
+            gb->cpu.regs.temp_reg = (gb->cpu.regs.HL >> 8) & 0xFF;
+        break;
+
+        case 0x05:  // L
+            gb->cpu.regs.temp_reg = (gb->cpu.regs.HL) & 0xFF;
+        break;
+
+        case 0x06:  // HL
+            gb->cpu.regs.temp_reg = (gb->cpu.regs.HL) & 0xFFFF;
+        break;
+
+        case 0x07:  // A
+            gb->cpu.regs.temp_reg = (gb->cpu.regs.AF >> 8) & 0xFF;
+        break;
+    }
+}
+
 // Access proper registers
 void access_register(GB* gb) {   
+    uint8_t opcode_pos = gb->cpu.opcode & 0xF;
+
+    if (opcode_pos > 7) {
+        opcode_pos = opcode_pos - 8;
+    }
+
+    if (debugging) {
+        printf("Opcode: 0x%02X", opcode_pos);
+    }
+
     char* registers[8] = { "B", "C", "D", "E", "H", "L", "HL", "A" };
+
+    set_temp_register(gb, opcode_pos);
+
+    if (debugging) {
+        printf("\nSelected register: %s\n", registers[opcode_pos]);
+        printf("Temp Register Value: 0x%04X", gb->cpu.regs.temp_reg);
+    }
 }
 
 void cpu_sub_set_flags(GB* gb) {
@@ -52,12 +105,12 @@ void cpu_sub_set_flags(GB* gb) {
 void mi_nop(GB* gb) {
     if (debugging) {
         printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
-        printf("Executing NOP instruction... \n");
+        printf("Executing nop instruction... \n");
         printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
     }
 
     gb->cpu.cycle_count = 1;
-    gb->cpu.PC++;
+    gb->cpu.PC += 1;
 }
 
 // 0x01
@@ -175,9 +228,22 @@ void mi_rla(GB* gb) {
 
 }
 
-// 0x18
+// 0x18 - 3 M-Cycle, PC = address + value
 void mi_jr_r8(GB* gb) {
+    int8_t offset = gb->cartridge.cart_rom[gb->cpu.PC + 1];
 
+    // Make sure to increase the PC by
+    // instruction length before adding offset
+    gb->cpu.PC += 2;
+
+    if (debugging) {
+        printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+        printf("Executing jr r8 instruction... \n");
+        printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+    }
+
+    gb->cpu.cycle_count = 3;
+    gb->cpu.PC += offset;
 }
 
 // 0x19
@@ -255,11 +321,11 @@ void mi_daa(GB* gb) {
 
 }
 
-// 0x28 3/2 M-Cycles, PC is based on results
+// 0x28 - 3/2 M-Cycles, PC is based on results
 void mi_jr_z_r8(GB* gb) {
     if (debugging) {
         printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
-        printf("Executing JR Z, r8... \n");
+        printf("Executing jr z, r8... \n");
         printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
     }
 
@@ -566,9 +632,45 @@ void mi_and(GB* gb) {
 // 0xA6 - HL
 // 0xA7 - A
 
-// 0xA8 - B
+// 0xA8 - B - 1 M-Cycles, PC++
 void mi_xor(GB* gb) {
+    uint8_t reg_a = (gb->cpu.regs.AF >> 8) & 0xFF;
+    uint16_t temp = gb->cpu.regs.temp_reg;
 
+    uint8_t result = reg_a ^ temp;
+    
+    if (debugging) {
+        printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+        printf("Executing xor instruction...\n");
+
+        access_register(gb);
+        printf("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+    }
+
+    // Set the Zero flag (Z)
+    if (result == 0) {
+        gb->cpu.regs.AF |= (1 << 7);
+    }
+    else {
+        gb->cpu.regs.AF &= ~(1 << 7);
+    }
+
+    // Reset the N (Subtract) Flag
+    gb->cpu.regs.AF &= ~(1 << 6);
+
+    // Reset the H (Half-Carry) Flag
+    gb->cpu.regs.AF &= ~(1 << 5);
+
+    // Reset the C (Carry) Flag
+    gb->cpu.regs.AF &= ~(1 << 4);
+
+    // Increase the cycle count and PC
+    gb->cpu.cycle_count = 1;
+    gb->cpu.PC += 1;
+
+    // Reset the temp_reg since it isn't
+    // used beyond this function
+    gb->cpu.regs.temp_reg &= 0x0000;
 }
 
 // 0xA9 - C
@@ -624,7 +726,7 @@ void mi_jp_nz_a16(GB* gb) {
 void mi_jp_a16(GB* gb) {
     if (debugging) {
         printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
-        printf("Executing JP a16 instruction...\n");
+        printf("Executing jp a16 instruction...\n");
     }
     uint8_t top_byte = gb->cartridge.cart_rom[gb->cpu.PC + 2];
     uint8_t bottom_byte = gb->cartridge.cart_rom[gb->cpu.PC + 1];
@@ -903,7 +1005,7 @@ void mi_ei(GB* gb) {
 void mi_cp_d8(GB* gb) {
     if (debugging) {
         printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
-        printf("Executing CP d8... \n");
+        printf("Executing cp d8... \n");
         printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
     }
 

@@ -9,7 +9,7 @@
 #include "misc.h"
 
 // Used in testing
-#define debugging false
+#define debugging true
 
 int main(int argc, char *argv[]) {
     GB gbc;                                             // Initialize the Gameboy
@@ -36,9 +36,9 @@ int main(int argc, char *argv[]) {
         print_cart(&gbc);
 
         printf("\n");
-        printf("-------------------------------\n");
-        printf("Program is working for GB\n");
-        printf("-------------------------------\n");
+        printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+        printf("Cart initialization is working.....\n");
+        printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n");
     }
 
     int ch;
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
         print_cpu_stats(&gbc);
 
         printf("Press Enter to continue CPU cycling.....\n");
-        printf("Press anykey to quit.....\n");
+        printf("Press anykey to quit.....\n\n");
         ch = getch();
         //printf("\nYou pressed: %c (ASCII: %d)\n", ch, ch);
 

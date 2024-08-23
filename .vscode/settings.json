@@ -3,6 +3,7 @@
         "common.h": "c",
         "stdlib.h": "c",
         "cartridge.h": "c",
-        "cpu.h": "c"
+        "cpu.h": "c",
+        "mi.h": "c"
     }
 }

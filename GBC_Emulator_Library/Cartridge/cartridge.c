@@ -45,7 +45,7 @@ void print_cart(GB *gb) {
     // Print the initial values of the CART structure
     printf("\n");
     printf("Initial values:\n");
-    printf("----------------------------------------------------\n");
+    printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
     printf("cart_rom: %p\n", (void *)gb->cartridge.cart_rom);
     printf("rom_code: %u\n", gb->cartridge.rom_code);
     printf("rom_size: %u\n", gb->cartridge.rom_size);
@@ -55,7 +55,10 @@ void print_cart(GB *gb) {
     printf("ram_code: %u\n", gb->cartridge.ram_code);
     printf("ram_size: %u\n", gb->cartridge.ram_size);
     printf("num_of_ram_banks: %u\n", gb->cartridge.num_of_ram_banks);
-    printf("----------------------------------------------------\n");
+
+    print_mbc_type(gb);
+    printf("\n");
+    printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
 }
 
 static void load_title(GB *gb) {

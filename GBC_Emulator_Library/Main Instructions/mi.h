@@ -7,7 +7,10 @@
 extern int indicies[0x100];
 extern main_instruction_set main_instructions[0x86];
 
-void access_register(GB *gb);
+// Used in instructions 0x40 - 0xBF
+void set_temp_register(GB* gb, uint8_t reg);
+void access_register(GB* gb);
+
 void cpu_sub_set_flags(GB* gb);
 
 // 0x00 - 0x0F

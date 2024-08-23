@@ -12,6 +12,8 @@ typedef struct registers {
     uint16_t DE;                        //          |
     uint16_t HL;                        // _____________________
 
+    uint16_t temp_reg;
+
     bool HALT;
 } REGS;
 
@@ -24,7 +26,7 @@ typedef struct cpu {
     int cycle;                          // Cycle count for debugging
     int cycle_count;                    // Contains the cycle count to increment by
     
-    bool prefix_cb_check;               // 
+    bool prefix_cb_check;               // Checks if the instruction is CB
     uint8_t opcode;                     // Contains the instruction opcode
 } CPU;
 
