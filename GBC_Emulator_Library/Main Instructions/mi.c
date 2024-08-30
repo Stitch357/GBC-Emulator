@@ -5,6 +5,12 @@
 
 #define debugging true
 
+// General Helper Function
+void increase_cycle_and_pc(GB* gb, uint8_t cc, uint8_t pc) {
+    gb->cpu.cycle_count = cc;
+    gb->cpu.PC += pc;
+}
+
 void set_temp_register(GB* gb, uint8_t reg) {
     switch (reg) {
         case 0x00:  // B
@@ -101,6 +107,25 @@ void cpu_sub_set_flags(GB* gb) {
     }
 }
 
+void set_inc_flags(GB* gb, uint16_t temp) {
+    // Set the Z flag
+    if ((temp + 1) == 0) {
+        gb->cpu.regs.AF |= (1 << 7);
+    }
+    else {
+        gb->cpu.regs.AF &= ~(1 << 7);
+    }
+
+    // Reset the N flag
+    gb->cpu.regs.AF &= ~(1 << 6);
+
+    // Set the H flag
+    // 0xF = 1111, add one and you get 0001 0000
+    if ((temp & 0xF) == 0xF) {
+        gb->cpu.regs.AF |= (1 << 5);
+    }
+}
+
 // 0x00 - 1 M-Cycle, PC++
 void mi_nop(GB* gb) {
     if (debugging) {
@@ -109,8 +134,7 @@ void mi_nop(GB* gb) {
         printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
     }
 
-    gb->cpu.cycle_count = 1;
-    gb->cpu.PC += 1;
+    increase_cycle_and_pc(gb, 1, 1);
 }
 
 // 0x01
@@ -123,14 +147,23 @@ void mi_ld_bc_a(GB* gb) {
 
 }
 
-// 0x03
+// 0x03 - 2 M-Cycle, PC++
 void mi_inc_bc(GB* gb) {
+    gb->cpu.regs.BC += 1;
 
+    increase_cycle_and_pc(gb, 2, 1);
 }
 
-// 0x04
+// 0x04 - 1 M-Cycle, PC++
 void mi_inc_b(GB* gb) {
+    uint16_t temp_b = (gb->cpu.regs.BC >> 8) & 0xFF;
+    uint16_t temp_c = (gb->cpu.regs.BC) & 0xFF;
 
+    set_inc_flags(gb, temp_b);
+
+    gb->cpu.regs.BC = ((temp_b + 1) << 8) | temp_c;
+
+    increase_cycle_and_pc(gb, 1, 1);
 }
 
 // 0x05
@@ -203,14 +236,23 @@ void mi_ld_de_a(GB* gb) {
 
 }
 
-// 0x13
+// 0x13 - 2 M-Cycle, PC++
 void mi_inc_de(GB* gb) {
+    gb->cpu.regs.DE += 1;
 
+    increase_cycle_and_pc(gb, 2, 1);
 }
 
-// 0x14
+// 0x14 - 1 M-Cycle, PC++
 void mi_inc_d(GB* gb) {
+    uint16_t temp_d = (gb->cpu.regs.DE >> 8) & 0xFF;
+    uint16_t temp_e = (gb->cpu.regs.DE) & 0xFF;
 
+    set_inc_flags(gb, temp_d);
+
+    gb->cpu.regs.DE = ((temp_d + 1) << 8) | temp_e;
+
+    increase_cycle_and_pc(gb, 1, 1);
 }
 
 // 0x15
@@ -296,14 +338,23 @@ void mi_ld_hlp_a(GB* gb) {
 
 }
 
-// 0x23
+// 0x23 - 2 M-Cycle, PC++
 void mi_inc_hl_value(GB* gb) {
+    gb->cpu.regs.HL += 1;
 
+    increase_cycle_and_pc(gb, 2, 1);
 }
 
-// 0x24
+// 0x24 - 1 M-Cycle, PC++
 void mi_inc_h(GB* gb) {
+    uint16_t temp_h = (gb->cpu.regs.HL >> 8) & 0xFF;
+    uint16_t temp_l = (gb->cpu.regs.HL) & 0xFF;
 
+    set_inc_flags(gb, temp_h);
+
+    gb->cpu.regs.HL = ((temp_h + 1) << 8) | temp_l;
+
+    increase_cycle_and_pc(gb, 1, 1);
 }
 
 // 0x25
@@ -394,12 +445,16 @@ void mi_ld_hlm_a(GB* gb) {
 
 }
 
-// 0x33
+// 0x33 - 2 M-Cycles, PC++
 void mi_inc_sp(GB* gb) {
+    gb->cpu.SP += 1;
 
+    increase_cycle_and_pc(gb, 2, 1);
 }
 
-// 0x34
+// 0x34 - 3 M-Cycles, PC++
+// Come back to this once you study
+// up on memory accessing and MBCs
 void mi_inc_hl_address(GB* gb) {
 
 }

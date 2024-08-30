@@ -7,11 +7,15 @@
 extern int indicies[0x100];
 extern main_instruction_set main_instructions[0x86];
 
+// General helper function
+void increase_cycle_and_pc(GB* gb, uint8_t cc, uint8_t pc);
+
 // Used in instructions 0x40 - 0xBF
 void set_temp_register(GB* gb, uint8_t reg);
 void access_register(GB* gb);
 
 void cpu_sub_set_flags(GB* gb);
+void set_inc_flags(GB* gb, uint16_t temp);
 
 // 0x00 - 0x0F
 void mi_nop(GB* gb);
