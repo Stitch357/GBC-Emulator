@@ -16,6 +16,7 @@ void access_register(GB* gb);
 
 void cpu_sub_set_flags(GB* gb);
 void set_inc_flags(GB* gb, uint16_t temp);
+void set_dec_flags(GB* gb, uint16_t temp);
 
 // 0x00 - 0x0F
 void mi_nop(GB* gb);

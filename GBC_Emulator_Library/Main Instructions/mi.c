@@ -38,7 +38,7 @@ void set_temp_register(GB* gb, uint8_t reg) {
         break;
 
         case 0x06:  // HL
-            gb->cpu.regs.temp_reg = (gb->cpu.regs.HL) & 0xFFFF;
+            gb->cpu.regs.temp_reg = gb->cpu.regs.HL;
         break;
 
         case 0x07:  // A
@@ -126,6 +126,30 @@ void set_inc_flags(GB* gb, uint16_t temp) {
     }
 }
 
+void set_dec_flags(GB* gb, uint16_t temp) {
+    // Set the Z flag
+    if ((temp - 1) == 0) {
+        gb->cpu.regs.AF |= (1 << 7);
+    }
+    else {
+        gb->cpu.regs.AF &= ~(1 << 7);
+    }
+
+    // Reset the N flag
+    gb->cpu.regs.AF |= (1 << 6);
+
+    // Set the H flag
+    // 0xF = 1111, add one and you get 0000 1111
+    if ((temp & 0xF) == 0x0) {
+        gb->cpu.regs.AF &= ~(1 << 5);
+    }
+    else {
+        gb->cpu.regs.AF |= (1 << 5);
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------
+
 // 0x00 - 1 M-Cycle, PC++
 void mi_nop(GB* gb) {
     if (debugging) {
@@ -149,7 +173,7 @@ void mi_ld_bc_a(GB* gb) {
 
 // 0x03 - 2 M-Cycle, PC++
 void mi_inc_bc(GB* gb) {
-    gb->cpu.regs.BC += 1;
+    gb->cpu.regs.BC = (gb->cpu.regs.BC + 1) & 0xFFFF;
 
     increase_cycle_and_pc(gb, 2, 1);
 }
@@ -161,14 +185,22 @@ void mi_inc_b(GB* gb) {
 
     set_inc_flags(gb, temp_b);
 
-    gb->cpu.regs.BC = ((temp_b + 1) << 8) | temp_c;
+    temp_b = (temp_b + 1) & 0xFF;
+    gb->cpu.regs.BC = (temp_b << 8) | temp_c;
 
     increase_cycle_and_pc(gb, 1, 1);
 }
 
-// 0x05
+// 0x05 - 1 M-Cycle PC++
 void mi_dec_b(GB* gb) {
+    uint16_t temp_b = (gb->cpu.regs.BC >> 8) & 0xFF;
+    uint16_t temp_c = (gb->cpu.regs.BC) & 0xFF;
 
+    set_dec_flags(gb, temp_b);
+
+    gb->cpu.regs.BC = ((temp_b - 1) << 8) | temp_c;
+
+    increase_cycle_and_pc(gb, 1, 1);
 }
 
 // 0x06
@@ -196,19 +228,38 @@ void mi_ld_a_bc(GB* gb) {
 
 }
 
-// 0x0B
+// 0x0B - 2 M-Cycles, PC++
 void mi_dec_bc(GB* gb) {
+    gb->cpu.regs.BC = (gb->cpu.regs.BC - 1) & 0xFFFF;
 
+    increase_cycle_and_pc(gb, 2, 1);
 }
 
-// 0x0C
+// 0x0C - 1 M-Cycle, PC++
 void mi_inc_c(GB* gb) {
+    uint16_t temp_b = (gb->cpu.regs.BC >> 8) & 0xFF;
+    uint16_t temp_c = (gb->cpu.regs.BC) & 0xFF;
 
+    set_inc_flags(gb, temp_c);
+
+    temp_c = (temp_c + 1) & 0xFF;
+    gb->cpu.regs.BC = (temp_b << 8) | temp_c;
+
+    increase_cycle_and_pc(gb, 1, 1);
 }
 
-// 0x0D
+// 0x0D - 1 M-Cycle, PC++
 void mi_dec_c(GB* gb) {
+    uint16_t temp_b = (gb->cpu.regs.BC >> 8) & 0xFF;
+    uint16_t temp_c = (gb->cpu.regs.BC) & 0xFF;
 
+    set_dec_flags(gb, temp_c);
+
+    // Ensures that underflow does not occur
+    temp_c = (temp_c - 1) & 0xFF;
+    gb->cpu.regs.BC = (temp_b << 8) | (temp_c - 1);
+
+    increase_cycle_and_pc(gb, 1, 1);
 }
 
 // 0x0E
@@ -238,7 +289,7 @@ void mi_ld_de_a(GB* gb) {
 
 // 0x13 - 2 M-Cycle, PC++
 void mi_inc_de(GB* gb) {
-    gb->cpu.regs.DE += 1;
+    gb->cpu.regs.DE = (gb->cpu.regs.DE + 1) & 0xFFFF;
 
     increase_cycle_and_pc(gb, 2, 1);
 }
@@ -250,14 +301,22 @@ void mi_inc_d(GB* gb) {
 
     set_inc_flags(gb, temp_d);
 
-    gb->cpu.regs.DE = ((temp_d + 1) << 8) | temp_e;
+    temp_d = (temp_d + 1) & 0xFF;
+    gb->cpu.regs.DE = (temp_d << 8) | temp_e;
 
     increase_cycle_and_pc(gb, 1, 1);
 }
 
-// 0x15
+// 0x15 - 1 M-Cycle, PC++
 void mi_dec_d(GB* gb) {
+    uint16_t temp_d = (gb->cpu.regs.DE >> 8) & 0xFF;
+    uint16_t temp_e = (gb->cpu.regs.DE) & 0xFF;
 
+    set_dec_flags(gb, temp_d);
+
+    gb->cpu.regs.BC = ((temp_d - 1) << 8) | temp_e;
+
+    increase_cycle_and_pc(gb, 1, 1);
 }
 
 // 0x16
@@ -298,19 +357,38 @@ void mi_ld_a_de(GB* gb) {
 
 }
 
-// 0x1B
+// 0x1B - 2 M-Cycles, PC++
 void mi_dec_de(GB* gb) {
+    gb->cpu.regs.DE = (gb->cpu.regs.DE - 1) & 0xFFFF;
 
+    increase_cycle_and_pc(gb, 2, 1);
 }
 
-// 0x1C
+// 0x1C - 1 M-Cycle, pc++
 void mi_inc_e(GB* gb) {
+    uint16_t temp_d = (gb->cpu.regs.DE >> 8) & 0xFF;
+    uint16_t temp_e = (gb->cpu.regs.DE) & 0xFF;
 
+    set_inc_flags(gb, temp_e);
+
+    temp_e = (temp_e + 1) & 0xFF;
+    gb->cpu.regs.DE = (temp_d << 8) | temp_e;
+
+    increase_cycle_and_pc(gb, 1, 1);
 }
 
-// 0x1D
+// 0x1D - 1 M-Cycle, PC++
 void mi_dec_e(GB* gb) {
+    uint16_t temp_d = (gb->cpu.regs.DE >> 8) & 0xFF;
+    uint16_t temp_e = (gb->cpu.regs.DE) & 0xFF;
 
+    set_dec_flags(gb, temp_e);
+
+    // Ensures that underflow does not occur
+    temp_e = (temp_e - 1) & 0xFF;
+    gb->cpu.regs.BC = (temp_d << 8) | (temp_e - 1);
+
+    increase_cycle_and_pc(gb, 1, 1);
 }
 
 // 0x1E
@@ -340,7 +418,7 @@ void mi_ld_hlp_a(GB* gb) {
 
 // 0x23 - 2 M-Cycle, PC++
 void mi_inc_hl_value(GB* gb) {
-    gb->cpu.regs.HL += 1;
+    gb->cpu.regs.HL = (gb->cpu.regs.HL + 1) & 0xFFFF;
 
     increase_cycle_and_pc(gb, 2, 1);
 }
@@ -352,14 +430,22 @@ void mi_inc_h(GB* gb) {
 
     set_inc_flags(gb, temp_h);
 
-    gb->cpu.regs.HL = ((temp_h + 1) << 8) | temp_l;
+    temp_h = (temp_h + 1) & 0xFF;
+    gb->cpu.regs.HL = (temp_h << 8) | temp_l;
 
     increase_cycle_and_pc(gb, 1, 1);
 }
 
-// 0x25
+// 0x25 - 1 M-Cycle, PC++
 void mi_dec_h(GB* gb) {
+    uint16_t temp_h = (gb->cpu.regs.HL >> 8) & 0xFF;
+    uint16_t temp_l = (gb->cpu.regs.HL) & 0xFF;
 
+    set_dec_flags(gb, temp_h);
+
+    gb->cpu.regs.BC = ((temp_h - 1) << 8) | temp_l;
+
+    increase_cycle_and_pc(gb, 1, 1);
 }
 
 // 0x26
@@ -403,19 +489,38 @@ void mi_ld_a_hlp(GB* gb) {
 
 }
 
-// 0x2B
+// 0x2B - 2 M-Cycles, PC++
 void mi_dec_hl_value(GB* gb) {
+    gb->cpu.regs.HL = (gb->cpu.regs.HL - 1) & 0xFFFF;
 
+    increase_cycle_and_pc(gb, 2, 1);
 }
 
-// 0x2C
+// 0x2C - 1 M-Cycle, PC++
 void mi_inc_l(GB* gb) {
+    uint16_t temp_h = (gb->cpu.regs.HL >> 8) & 0xFF;
+    uint16_t temp_l = (gb->cpu.regs.HL) & 0xFF;
 
+    set_inc_flags(gb, temp_l);
+
+    temp_l = (temp_l + 1) & 0xFF;
+    gb->cpu.regs.HL = (temp_h << 8) | temp_l;
+
+    increase_cycle_and_pc(gb, 1, 1);
 }
 
 // 0x2D
 void mi_dec_l(GB* gb) {
+    uint16_t temp_h = (gb->cpu.regs.HL >> 8) & 0xFF;
+    uint16_t temp_l = (gb->cpu.regs.HL) & 0xFF;
 
+    set_dec_flags(gb, temp_l);
+
+    // Ensures that underflow does not occur
+    temp_l = (temp_l - 1) & 0xFF;
+    gb->cpu.regs.BC = (temp_h << 8) | (temp_l - 1);
+
+    increase_cycle_and_pc(gb, 1, 1);
 }
 
 // 0x2E
@@ -447,7 +552,7 @@ void mi_ld_hlm_a(GB* gb) {
 
 // 0x33 - 2 M-Cycles, PC++
 void mi_inc_sp(GB* gb) {
-    gb->cpu.SP += 1;
+    gb->cpu.SP = (gb->cpu.SP + 1) & 0xFFFF;
 
     increase_cycle_and_pc(gb, 2, 1);
 }
@@ -489,19 +594,38 @@ void mi_ld_a_hlm(GB* gb) {
 
 }
 
-// 0x3B
+// 0x3B - 2 M-Cycles, PC++
 void mi_dec_sp(GB* gb) {
+    gb->cpu.SP = (gb->cpu.SP - 1) & 0xFFFF;
 
+    increase_cycle_and_pc(gb, 2, 1);
 }
 
-// 0x3C
+// 0x3C - 1 M-Cycle, PC++
 void mi_inc_a(GB* gb) {
+    uint16_t temp_a = (gb->cpu.regs.AF >> 8) & 0xFF;
+    uint16_t temp_f = (gb->cpu.regs.AF) & 0xFF;
 
+    set_inc_flags(gb, temp_a);
+
+    temp_a = (temp_a + 1) & 0xFF;
+    gb->cpu.regs.AF = (temp_a << 8) | temp_f;
+
+    increase_cycle_and_pc(gb, 1, 1);
 }
 
-// 0x3D
+// 0x3D - 1 M-Cycle, PC++
 void mi_dec_a(GB* gb) {
+    uint16_t temp_a = (gb->cpu.regs.AF >> 8) & 0xFF;
+    uint16_t temp_f = (gb->cpu.regs.AF) & 0xFF;
 
+    set_dec_flags(gb, temp_a);
+
+    // Ensures that underflow does not occur
+    temp_a = (temp_a - 1) & 0xFF;
+    gb->cpu.regs.AF = (temp_a << 8) | temp_f;
+
+    increase_cycle_and_pc(gb, 1, 1);
 }
 
 // 0x3E
@@ -687,7 +811,7 @@ void mi_and(GB* gb) {
 // 0xA6 - HL
 // 0xA7 - A
 
-// 0xA8 - B - 1 M-Cycles, PC++
+// 0xA8, 0xA9, 0xAA, 0xAB, 0xAC, 0xAD, 0xAE, 0xAF - 1 M-Cycles, PC++
 void mi_xor(GB* gb) {
     uint8_t reg_a = (gb->cpu.regs.AF >> 8) & 0xFF;
     uint16_t temp = gb->cpu.regs.temp_reg;
@@ -727,14 +851,6 @@ void mi_xor(GB* gb) {
     // used beyond this function
     gb->cpu.regs.temp_reg &= 0x0000;
 }
-
-// 0xA9 - C
-// 0xAA - D
-// 0xAB - E
-// 0xAC - H
-// 0xAD - L
-// 0xAE - HL
-// 0xAF - A
 
 // 0xB0 - B
 void mi_or(GB* gb) {

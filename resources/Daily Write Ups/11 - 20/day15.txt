@@ -1,0 +1,20 @@
+9/20/24
+---------------------------------------------------------------------------------------------------
+It's been a week and a half since I last worked on this. I've been getting things going on my new
+projects. The Eldritch Adventures along with studying for CompTIA A+. I've also decided to learn
+embedded systems because of this project. So I've been doind all of that while coming to terms
+being stuck at the busier work location. In other words, I've been too tired to devote the brain
+power to this one since I have to dive so deep into it at a time.
+---------------------------------------------------------------------------------------------------
+My deep dive today consisted of figuring out how the MBC works. I've only worked on figuring out
+the basics so far. And that took me an 1 - 1.5 hours to learn. This is because I'm adding in the
+embedded systems portion to figure out how this would physically work as well as the emulator.
+
+If I want to be correct with the structure, the GB struct will have a separate MBC struct. This
+would take the curr_rom_bank out of the cartridge and place it in the MBC struct. I think it
+would do the same for curr_ram_bank as well, and it would need to set all the correct MBC stuff
+after reading the cartridge. For now, I'm going to stick to the current structure. I don't want
+to confuse myself further until I figure the rest of it out.
+
+I'll work on the actual implementation in a couple of days. I need to work on a few other things
+since the next couple of days are going to be busy at work.

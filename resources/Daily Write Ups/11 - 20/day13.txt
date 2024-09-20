@@ -1,0 +1,27 @@
+8/30/24
+---------------------------------------------------------------------------------------------------
+I have have done work on the emulator since the 18th. But admitedly, I haven't done a ton on it.
+I've implemented around 20 CPU instructions, including the 7 I added today.
+
+0x03, 0x04, 0x13, 0x14, 0x23, 0x24, & 0x33
+
+These 7 are incrementing the the combined registers BC, DE, HL, SP, B, D, & H. I ran into a snag
+while implementing 0x34 because that's incrementing the value contained in memory. It uses the
+address that HL holds to first read the memory, and then write back to it. I haven't done any
+reading into memory read and writes yet. I need to implement the MBC3 before I tackle that one.
+
+---------------------------------------------------------------------------------------------------
+I have found out that I need to lower the amount I implement while at work, because I either get
+busy and forget to do a write up. Or because I need a good chunk of time to sit and work on it.
+If I'm lucky I get 2-3 hours of uninterrupted time a night. For some of these pieces that's what
+I need. No interruptions. I might need to do those pieces at home because I know I won't have
+distractions.
+
+---------------------------------------------------------------------------------------------------
+Another reason this has been a bit spotty is because I have started work on The Eldritch Adventures.
+I've been putting the time into that, so that I can get concept art completed. Which in turn will
+allow me to get some mock ups and a vertical slice put together. I'm wanting to do this to both get
+the story out there, and to start up my own studio. If I can get it going, then Naya won't have to
+live out her working days in retirement. She can be with me until the end. In two years she'll be 8
+and that may be the time she retires. Either way, I'll be looking for a remote job so that she isn't
+alone. But I had to start on this project now or else that can't happen.
