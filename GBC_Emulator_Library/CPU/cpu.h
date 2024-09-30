@@ -20,7 +20,7 @@ uint8_t access_sub_flag(uint16_t reg);
 uint8_t access_half_carry_flag(uint16_t reg);
 uint8_t access_carry_flag(uint16_t reg);
 
-void cpu_initialize(GB *gb);
+void initialize_cpu(GB *gb);
 void print_cpu_stats(GB *gb);
 
 void mi_nop();

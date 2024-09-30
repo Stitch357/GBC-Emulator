@@ -58,7 +58,7 @@ uint8_t access_carry_flag(uint16_t reg) {
     return temp_value;
 }
 
-void cpu_initialize(GB *gb) {
+void initialize_cpu(GB *gb) {
     gb->cpu.regs.AF = 0x0000;
     gb->cpu.regs.BC = 0x0000;
     gb->cpu.regs.DE = 0x0000;

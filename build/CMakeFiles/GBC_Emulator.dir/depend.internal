@@ -11,6 +11,7 @@ CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/CPU/cpu.c.o
  /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/cpu.h
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Cartridge/cartridge.c.o
  ../GBC_Emulator_Library/Enums/enum.h
+ ../GBC_Emulator_Library/MBC/mbc.h
  ../GBC_Emulator_Library/Structs/structs.h
  /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/cartridge.c
  /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/cartridge.h
@@ -18,6 +19,9 @@ CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/GB/gameboy.c.o
  /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/GB/gameboy.c
  /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/GB/gameboy.h
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/MBC/mbc.c.o
+ ../GBC_Emulator_Library/Cartridge/cartridge.h
+ ../GBC_Emulator_Library/Enums/enum.h
+ ../GBC_Emulator_Library/Structs/structs.h
  /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/MBC/mbc.c
 CMakeFiles/GBC_Emulator.dir/GBC_Emulator_Library/Main_Instructions/mi.c.o
  ../GBC_Emulator_Library/CPU/cpu.h
@@ -41,6 +45,7 @@ CMakeFiles/GBC_Emulator.dir/src/emu.c.o
  ../GBC_Emulator_Library/CPU/cpu.h
  ../GBC_Emulator_Library/Cartridge/cartridge.h
  ../GBC_Emulator_Library/Enums/enum.h
+ ../GBC_Emulator_Library/MBC/mbc.h
  ../GBC_Emulator_Library/Main Instructions/mi.h
  ../GBC_Emulator_Library/Misc/misc.h
  ../GBC_Emulator_Library/Prefix CB Instructions/cbi.h

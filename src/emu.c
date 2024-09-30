@@ -6,6 +6,7 @@
 #include "structs.h"
 #include "cartridge.h"
 #include "cpu.h"
+#include "mbc.h"
 #include "misc.h"
 
 // Used in testing
@@ -27,10 +28,12 @@ int main(int argc, char *argv[]) {
         printf("Loading ROM: %s\n", rom_path);
     }
 
+    initialize_cpu(&gbc);                               // Make sure to initialize the CPU stats
+
+    initialize_mbc(&gbc);                               // Initialize the MBC before cart
+
     initialize_cart(&gbc);                              // Initialize the cartridge
     load_cartridge(&gbc, rom_path);                     // Load the cartridge ROM to memory
-
-    cpu_initialize(&gbc);                               // Make sure to initialize the CPU stats
 
     if (debugging) {
         print_cart(&gbc);

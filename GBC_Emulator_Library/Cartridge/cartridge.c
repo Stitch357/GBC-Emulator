@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <errno.h>
 #include "cartridge.h"
+#include "mbc.h"
 #include "structs.h"
 
 // Used in testing
@@ -31,14 +32,10 @@ void initialize_cart(GB *gb) {
     gb->cartridge.cart_rom = NULL;
     gb->cartridge.rom_code = 0;
     gb->cartridge.rom_size = 0;
-    gb->cartridge.num_of_rom_banks = 0;
-    gb->cartridge.curr_rom_bank = 1;
 
     gb->cartridge.cart_ram = NULL;
     gb->cartridge.ram_code = 0;
     gb->cartridge.ram_size = 0;
-    gb->cartridge.num_of_ram_banks = 0;
-    gb->cartridge.curr_ram_bank = 0;
 }
 
 void print_cart(GB *gb) {
@@ -54,7 +51,7 @@ void print_cart(GB *gb) {
     printf("cart_ram: %p\n", (void *)gb->cartridge.cart_ram);
     printf("ram_code: %u\n", gb->cartridge.ram_code);
     printf("ram_size: %u\n", gb->cartridge.ram_size);
-    printf("num_of_ram_banks: %u\n", gb->cartridge.num_of_ram_banks);
+    printf("num_of_ram_banks: %u", gb->cartridge.num_of_ram_banks);
 
     print_mbc_type(gb);
     printf("\n");
@@ -186,78 +183,6 @@ static void print_ram_size(GB *gb) {
 
 static void print_ram_banks(GB *gb) {
     printf("\n# of RAM banks is ---> %d", gb->cartridge.num_of_ram_banks);
-}
-
-static void load_mbc_flag(GB *gb) {
-    // cart_type_addr
-    gb->cartridge.mbc_code = gb->cartridge.cart_rom[cart_type_addr];
-
-    switch (gb->cartridge.mbc_code) {
-        case 0x00:                          // NO MBC
-            gb->cartridge.mbc_type = MBC_NONE;
-        break;
-
-        case 0x01:                          // MBC1
-        case 0x02:                          // MBC1 + RAM
-        case 0x03:                          // MBC1 + RAM + BATTERY
-            gb->cartridge.mbc_type = MBC1;
-        break;
-
-        // MBC 2
-        case 0x05:                          // MBC2
-        case 0x06:                          // MBC2 + BATTERY
-            gb->cartridge.mbc_type = MBC2;
-
-            gb->cartridge.num_of_ram_banks = 1;
-            gb->cartridge.ram_size = 512 * 8;
-        break;
-
-        // MBC 3
-        case 0x0F:                          // MBC3 + TIMER + BATTERY
-        case 0x10:                          // MBC3 + TIMER + RAM + BATTERY
-        case 0x11:                          // MBC3
-        case 0x12:                          // MBC3 + RAM
-        case 0x13:                          // MBC3 + RAM + BATTERY
-            gb->cartridge.mbc_type = MBC3;
-        break;
-
-        // MBC 5
-        case 0x19:                          // MBC5
-        case 0x1A:                          // MBC5 + RAM
-        case 0x1B:                          // MBC5 + RAM + BATTERY
-            gb->cartridge.mbc_type = MBC5;
-        break;
-
-        default:
-            printf("Unrecognized MBC type");
-    }
-}
-
-static void print_mbc_type(GB *gb) {
-    switch (gb->cartridge.mbc_type) {
-        case 0:     // No MBC
-            printf("\n\nDoesn't have an MBC");
-        break;
-
-        case 1:     // MBC 1
-            printf("\n\nMBC type is ---> MBC 1");
-        break;
-
-        case 2:     // MBC 2
-            printf("\n\nMBC type is ---> MBC 2");
-        break;
-
-        case 3:     // MBC 3
-            printf("\n\nMBC type is ---> MBC 3");
-        break;
-
-        case 4:     // MBC 5
-            printf("\n\nMBC type is ---> MBC 5");
-        break;
-
-        default:
-            printf("Unrecognized MBC type");
-    }
 }
 
 void load_cartridge(GB *gb, const char *rom_path) {

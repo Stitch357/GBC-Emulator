@@ -1,0 +1,30 @@
+9/21/24
+---------------------------------------------------------------------------------------------------
+I never have enough time to dive into this deeply while at work. I need to carve out some time on
+the weekends or after work to do more on this project. The new server I'm building is almost done.
+That means I'll have a workstation at home once again. One that is capable of handling everything
+I need. Since, I mainly work on this at work, I leave my laptop in the car at home. Which does
+limit my motivation to work on things outside of the weekend.
+
+For now, I've been working on separating the MBC from the cartridge functionality. What this means
+is that there is going to be some refactoring pains as I figure out what the MBC needs versus what
+can stay in the CART or CPU. It also means that I need to learn about the physical structure of the
+Game Boy. This is because I don't know where the MBC actually lives. I believe that it's a part of
+the cartridge; mainly because 0x147 changes based on the ROM. But I don't know yet.
+
+The current functionality is the same, but the faithfulness to the original design might not be.
+I store the MBC in the GB struct, but it may be better - for completeness - to store the MBC in
+the CART struct.
+---------------------------------------------------------------------------------------------------
+I understand the bare basics of how MBC3 is supposed to work. A CPU instruction will change the
+bank number, which in turn is used to access the correct ROM location. From there, it's a matter
+of calculating the correct location.
+
+rom_offset += (curr_rom_bank - 1) * rom_bank_size;
+
+rom_offset is already set to the address that's passed in, so we'll just need to add the calculated
+shift to that. We just return gb->cartridge.cart_rom[rom_offset] after that for the correct data.
+
+
+
+Good enough for the moment!

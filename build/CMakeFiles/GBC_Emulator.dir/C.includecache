@@ -22,6 +22,12 @@ enum.h
 
 ../GBC_Emulator_Library/Enums/enum.h
 
+../GBC_Emulator_Library/MBC/mbc.h
+structs.h
+../GBC_Emulator_Library/MBC/structs.h
+enum.h
+../GBC_Emulator_Library/MBC/enum.h
+
 ../GBC_Emulator_Library/Main Instructions/mi.h
 structs.h
 ../GBC_Emulator_Library/Main Instructions/structs.h
@@ -41,8 +47,6 @@ stdint.h
 -
 stdbool.h
 -
-
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/APU/apu.c
 
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/CPU/cpu.c
 stdlib.h
@@ -77,6 +81,8 @@ errno.h
 -
 cartridge.h
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/cartridge.h
+mbc.h
+/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/mbc.h
 structs.h
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/structs.h
 
@@ -86,13 +92,17 @@ structs.h
 enum.h
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Cartridge/enum.h
 
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/GB/gameboy.c
-gameboy.h
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/GB/gameboy.h
-
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/GB/gameboy.h
-
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/MBC/mbc.c
+stdlib.h
+-
+stdint.h
+-
+errno.h
+-
+cartridge.h
+/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/MBC/cartridge.h
+structs.h
+/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/MBC/structs.h
 
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Main Instructions/mi.c
 mi.h
@@ -107,26 +117,6 @@ misc.h
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Main Instructions/mi.h
 structs.h
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Main Instructions/structs.h
-
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Misc/misc.c
-stdio.h
--
-stdlib.h
--
-stdint.h
--
-unistd.h
--
-termios.h
--
-fcntl.h
--
-misc.h
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Misc/misc.h
-
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Misc/misc.h
-
-/home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/PPU/ppu.c
 
 /home/thill/Documents/Github/GBC-Emulator/GBC_Emulator_Library/Prefix CB Instructions/cbi.c
 cbi.h
@@ -155,6 +145,8 @@ cartridge.h
 /home/thill/Documents/Github/GBC-Emulator/src/cartridge.h
 cpu.h
 /home/thill/Documents/Github/GBC-Emulator/src/cpu.h
+mbc.h
+/home/thill/Documents/Github/GBC-Emulator/src/mbc.h
 misc.h
 /home/thill/Documents/Github/GBC-Emulator/src/misc.h
 

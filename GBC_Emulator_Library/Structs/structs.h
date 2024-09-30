@@ -30,40 +30,49 @@ typedef struct cpu {
     uint8_t opcode;                     // Contains the instruction opcode
 } CPU;
 
+typedef struct mbc {
+    uint8_t mbc_code;                  // Stores the MBC type code
+    uint8_t mbc_type;                  // Stores the generic MBC type
+
+    uint16_t num_of_rom_banks;          // Stores the number of ROM banks (2 - 512)
+    uint8_t curr_rom_bank;              // Stores the current ROM bank (2 - 512)
+
+    unsigned int ram_size;              // Stores the size of the RAM in bytes
+    uint8_t num_of_ram_banks;           // Stores the number of RAM banks (0 - 16)
+    uint8_t curr_ram_bank;              // Stores the current ROM bank (0 - 16)
+} MBC;
+
 typedef struct cart {
     uint8_t *cart_rom;                  // Reads in the entire ROM | Dynamically set
     unsigned int rom_size;              // Stores the size of the ROM in bytes
 
     uint8_t rom_code;                   // Houses the ROM identifier code
     uint16_t num_of_rom_banks;          // Stores the number of ROM banks (2 - 512)
-    uint8_t curr_rom_bank;              // Stores the current ROM bank (2 - 512)
 
     uint8_t *cart_ram;                  // Dynamically set amount based on cart specs
     unsigned int ram_size;              // Stores the size of the RAM in bytes
     
     uint8_t ram_code;                   // Houses the RAM identifier code
     uint8_t num_of_ram_banks;           // Stores the number of RAM banks (0 - 16)
-    uint8_t curr_ram_bank;              // Stores the current ROM bank (0 - 16)
 
     char title[17];                     // Stores the title of the game
 
     bool cgb;                           // Stores the flag for CGB mode
-    
-    uint8_t mbc_code;                  // Stores the MBC type code
-    uint8_t mbc_type;                  // Stores the generic MBC type
-
 } CART;
 
 typedef struct gameboy {
+    // Declare the CPU
+    CPU cpu;
+
+    // Declare the MBC
+    MBC mbc;
+
     // I want to read from the cart first because it contains all the necessary
     // information for the CPU, MBC, and possibly the rest
     CART cartridge;
     
     // Add the code and struct for the MBC. This probably isn't necessary, but
     // it will make it easier for me to visualize the overall structure
-
-    // Initialize the CPU
-    CPU cpu;
 
     // Simulated hardware of the Gameboy Color
     // The write up is included in day2.txt section on memory management
